@@ -1,17 +1,26 @@
-SRC = src/main.c
+SRC = 	src/main.c		\
+		src/utils.c		\
+		src/player.c	\
+		src/mouvement.c	\
 
 OBJ = $(SRC:src/%.c=obj/%.o)
 
 INCLUDES = -I includes/
 
-LINK = -L ./libraries -lmlx -lX11 -lXext
+LINUX_LINK = -L ./libraries -lmlx -lX11 -lXext
 
-GAME = a.out
+MAC_LINK = -L ./libraries -lmlx -framework OpenGL -framework AppKit
 
-all: $(GAME)
+GAME = prog
 
-$(GAME): $(OBJ)
-	cc $(OBJ) $(LINK) -o $@
+all:
+	@echo 'make mac || make linux'
+
+mac: $(OBJ)
+	cc $(OBJ) $(MAC_LINK) -o $(GAME)
+
+linux: $(OBJ)
+	cc $(OBJ) $(LINUX_LINK) -o $(GAME)
 
 obj/%.o: src/%.c | obj
 	cc -c $(INCLUDES)  $< -o $@
