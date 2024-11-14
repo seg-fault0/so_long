@@ -1,44 +1,29 @@
-# Compiler
-CC := gcc
+SRC = src/main.c
 
-# Source and object files
-SRC := src/main.c
-OBJ_DIR := obj
-OBJ := $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
+OBJ = $(SRC:src/%.c=obj/%.o)
 
-# Output executable
-NAME := Prog
+INCLUDES = -I includes/
 
-# Includes
-INCLUDES := -I includes/
+LINK = -L ./libraries -lmlx -lX11 -lXext
 
-# MiniLibX libraries and frameworks for macOS
-MLX := -lmlx -framework OpenGL -framework AppKit
+GAME = a.out
 
-# MiniLibX libraries for Linux (comment the line above and uncomment below for Linux)
-# MLX := -lmlx -lXext -lX11 -lm
+all: $(GAME)
 
-# Rules
-all: $(NAME)
+$(GAME): $(OBJ)
+	cc $(OBJ) $(LINK) -o $@
 
-# Create executable
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) $(MLX) -o $(NAME)
+obj/%.o: src/%.c | obj
+	cc -c $(INCLUDES)  $< -o $@
 
-# Compile .c files into .o files in the obj directory
-$(OBJ_DIR)/%.o: src/%.c | $(OBJ_DIR)
-	$(CC) -c $< -o $@ $(INCLUDES)
-
-# Create the obj directory if it doesn't exist
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+obj:
+	mkdir -p obj
 
 clean:
-	rm -f $(OBJ_DIR)/*.o
+	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(GAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
