@@ -27,8 +27,7 @@ typedef struct
 void	*ft_mov(w_mlx *mlx, int x, int y);
 int		ft_input(int keycode, w_mlx *mlx);
 void	ft_exit(w_mlx *mlx);
-void	*mlx_print_image(w_mlx *mlx, char *file_name, int x, int y);
+void	*mlx_print_image(w_mlx *mlx, char *file_name, int x, int y, void *old);
 w_mlx	*ft_mlx_init();
-
 
 #endif

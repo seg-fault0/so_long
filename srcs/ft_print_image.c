@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-void *mlx_print_image(w_mlx *mlx, char *file_name, int x, int y)
+void *mlx_print_image(w_mlx *mlx, char *file_name, int x, int y, void *old)
 {
 	int 	size;
 	void	*image;
@@ -12,6 +12,8 @@ void *mlx_print_image(w_mlx *mlx, char *file_name, int x, int y)
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->map_img, 0, 0);
 
 //print the accual image
+	if (old != NULL)
+		mlx_destroy_image(mlx->mlx, old);
 	image = mlx_xpm_file_to_image(mlx->mlx, file_name, &size, &size);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, image, x, y);
 
