@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-void *ft_player(w_mlx *mlx, int x, int y)
+void *ft_mov(w_mlx *mlx, int x, int y)
 {
 	static	int	xpo;
 	static	int ypo;
@@ -12,8 +12,6 @@ void *ft_player(w_mlx *mlx, int x, int y)
 
 	xpo += x;
 	ypo += y;
-	size = 20;
-
 	player = mlx_xpm_file_to_image(mlx->mlx, "assets/player.xpm", &size, &size);
 	
 	mlx_put_image_to_window(mlx->mlx, mlx->win, player, xpo, ypo);
