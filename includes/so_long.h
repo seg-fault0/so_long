@@ -4,6 +4,11 @@
 
 //Macros
 # define MAX_COL 1000000
+# define IMG_SIZE 64
+# define PLAYER_PATH "./textures/player/down/1.xpm"
+# define WALL_PATH "./textures/map/wall.xpm"
+# define FLOOR_PATH "./textures/map/floor.xpm"
+# define KEY_PATH "./textures/map/key.xpm"
 
 //STD Libraries
 # include <unistd.h>
@@ -21,12 +26,13 @@ typedef struct
 {
 	void	*mlx;
 	void	*win;
-	void	*player;
-	void	*map_img;
 }w_mlx;
 
 //Prototypes
-char	**get_map(int fd);
+char	**ft_get_map(int fd);
+void	ft_map_gen(w_mlx *mlx, char **map);
+w_mlx	*ft_mlx_init(w_mlx *mlx, int with, int height);
+void	ft_mlx_print_img(w_mlx *mlx, char *path, int x, int y);
 
 
 #endif
