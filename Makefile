@@ -1,5 +1,5 @@
 I = -I includes/
-L = -L libraries/ -lmlx_Linux -lX11 -lXext
+L = -L libraries/ -lmlx_Linux -lX11 -lXext -lgnl
 
 src = srcs/*.c
 
@@ -7,7 +7,7 @@ name = so_long
 
 all:
 	cc $(I) $(src) $(L) -o $(name)
-	./$(name)
+	./$(name) 'maps/map.ber'
 
 lldb:
 	cc $(I) $(src) $(L) -g

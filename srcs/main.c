@@ -1,19 +1,15 @@
 #include "so_long.h"
 
-void ft_leaks()
+int main(int argc, char *argv[])
 {
-	system("leaks exe");
-}
+	char **map;
 
-int main()
-{
-	atexit(ft_leaks);
-	w_mlx	*mlx;
+	map = get_map(argv[1]);
 
-	mlx = ft_mlx_init();
-
-	mlx_hook(mlx->win,  2, 1L << 0, ft_input, mlx);
-	mlx_loop(mlx->mlx);
-
-	return (0);
+	for(int i = 0; map[i] != NULL; i++)
+	{
+		for(int j = 0; map[i][j] != '\n'; j++)
+			printf("%c", map[i][j]);
+		write(1, "\n",1);
+	}
 }
