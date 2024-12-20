@@ -12,6 +12,10 @@
 # define FLOOR_PATH "./textures/map/floor.xpm"
 # define KEY_PATH "./textures/map/key.xpm"
 # define DOOR_PATH "./textures/map/door.xpm"
+# define UP_IMG	"./textures/player/up.xpm"
+# define DOWN_IMG "./textures/player/down.xpm"
+# define RIGHT_IMG "./textures/player/right.xpm"
+# define LEFT_IMG "./textures/player/left.xpm"
 
 //KEY_CODES
 # define ESC_KEY 65307
@@ -45,8 +49,6 @@ char	**ft_get_map(int fd);
 int		ft_input(int keycode, w_mlx *mlx);
 void	ft_map_gen(w_mlx *mlx);
 void	ft_mlx_print_img(w_mlx *mlx, char *path, int x, int y);
-void	ft_player_gen(w_mlx *mlx, int x, int y);
 void	ft_exit(w_mlx *mlx);
-void	ft_mov_up(w_mlx *mlx);
 
 #endif

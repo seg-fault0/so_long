@@ -9,8 +9,8 @@ int main(int argc, char *argv[])
 	mlx->map  = ft_get_map(fd);
 
 	ft_map_gen(mlx);
-	ft_player_gen(mlx, 0, 0);
+	ft_mlx_print_img(mlx, DOWN_IMG, 64 * 2, 64);
 
-	mlx_hook(mlx->win, 2, 1L<<0, ft_input, mlx);
+	mlx_key_hook(mlx->win, ft_input, mlx);
 	mlx_loop(mlx->mlx);
 }
