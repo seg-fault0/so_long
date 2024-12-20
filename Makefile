@@ -7,10 +7,11 @@ name = so_long
 
 all:
 	cc $(I) $(src) $(L) -o $(name)
-	./$(name) 'maps/map.ber'
+	./$(name) "maps/map.ber"
 
 lldb:
-	cc $(I) $(src) $(L) -g
+	clang -g $(I) $(src) $(L)
+	lldb ./a.out
 
 key:
 	cc $(I) ./.Trash/key.c $(L) 

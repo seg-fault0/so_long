@@ -26,7 +26,7 @@ typedef struct
 }w_mlx;
 
 //Prototypes
-char	**get_map(char *path);
+char	**get_map(int fd);
 
 
 #endif
