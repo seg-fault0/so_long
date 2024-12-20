@@ -38,12 +38,12 @@ void	ft_map_gen(w_mlx *mlx, char **map)
 		{
 			if(map[j][i] == '1')
 				ft_mlx_print_img(mlx, WALL_PATH, i * IMG_SIZE, j * IMG_SIZE);
-			else if(map[j][i] == '0')
-				ft_mlx_print_img(mlx, FLOOR_PATH, i * IMG_SIZE, j * IMG_SIZE);
-			else if(map[j][i] == 'P')
-				ft_mlx_print_img(mlx, PLAYER_PATH, i * IMG_SIZE, j * IMG_SIZE);
 			else if(map[j][i] == 'C')
 				ft_mlx_print_img(mlx, KEY_PATH, i * IMG_SIZE, j * IMG_SIZE);
+			else if(map[j][i] == 'E')
+				ft_mlx_print_img(mlx, DOOR_PATH, i * IMG_SIZE, j * IMG_SIZE);
+			else
+				ft_mlx_print_img(mlx, FLOOR_PATH, i * IMG_SIZE, j * IMG_SIZE);
 			i++;
 		}
 		j++;

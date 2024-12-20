@@ -5,10 +5,20 @@
 //Macros
 # define MAX_COL 1000000
 # define IMG_SIZE 64
+
+//PATHS
 # define PLAYER_PATH "./textures/player/down/1.xpm"
 # define WALL_PATH "./textures/map/wall.xpm"
 # define FLOOR_PATH "./textures/map/floor.xpm"
 # define KEY_PATH "./textures/map/key.xpm"
+# define DOOR_PATH "./textures/map/door.xpm"
+
+//KEY_CODES
+# define ESC_KEY 65307
+# define W_KEY 119
+# define S_KEY 115
+# define A_KEY 97
+# define D_KEY 100 
 
 //STD Libraries
 # include <unistd.h>
@@ -29,10 +39,13 @@ typedef struct
 }w_mlx;
 
 //Prototypes
-char	**ft_get_map(int fd);
-void	ft_map_gen(w_mlx *mlx, char **map);
 w_mlx	*ft_mlx_init(w_mlx *mlx, int with, int height);
+char	**ft_get_map(int fd);
+int		ft_input(int keycode, w_mlx *mlx);
+void	ft_map_gen(w_mlx *mlx, char **map);
 void	ft_mlx_print_img(w_mlx *mlx, char *path, int x, int y);
+void	ft_player_gen(w_mlx *mlx, char **map);
+void	ft_exit(w_mlx *mlx);
 
 
 #endif
