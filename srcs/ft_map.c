@@ -24,23 +24,23 @@ char	**ft_get_map(int fd)
 	return (map);
 }
 
-void	ft_map_gen(w_mlx *mlx, char **map)
+void	ft_map_gen(w_mlx *mlx)
 {
 	int	i;
 	int j;
 
 	i = 0;
 	j = 0;
-	while (map[j] != NULL)
+	while (mlx->map[j] != NULL)
 	{
 		i = 0;
-		while (map[j][i] != '\n')
+		while (mlx->map[j][i] != '\n')
 		{
-			if(map[j][i] == '1')
+			if(mlx->map[j][i] == '1')
 				ft_mlx_print_img(mlx, WALL_PATH, i * IMG_SIZE, j * IMG_SIZE);
-			else if(map[j][i] == 'C')
+			else if(mlx->map[j][i] == 'C')
 				ft_mlx_print_img(mlx, KEY_PATH, i * IMG_SIZE, j * IMG_SIZE);
-			else if(map[j][i] == 'E')
+			else if(mlx->map[j][i] == 'E')
 				ft_mlx_print_img(mlx, DOOR_PATH, i * IMG_SIZE, j * IMG_SIZE);
 			else
 				ft_mlx_print_img(mlx, FLOOR_PATH, i * IMG_SIZE, j * IMG_SIZE);

@@ -36,16 +36,17 @@ typedef struct
 {
 	void	*mlx;
 	void	*win;
+	char	**map;
 }w_mlx;
 
 //Prototypes
 w_mlx	*ft_mlx_init(w_mlx *mlx, int with, int height);
 char	**ft_get_map(int fd);
 int		ft_input(int keycode, w_mlx *mlx);
-void	ft_map_gen(w_mlx *mlx, char **map);
+void	ft_map_gen(w_mlx *mlx);
 void	ft_mlx_print_img(w_mlx *mlx, char *path, int x, int y);
-void	ft_player_gen(w_mlx *mlx, char **map);
+void	ft_player_gen(w_mlx *mlx, int x, int y);
 void	ft_exit(w_mlx *mlx);
-
+void	ft_mov_up(w_mlx *mlx);
 
 #endif
