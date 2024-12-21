@@ -95,3 +95,24 @@ void	ft_map_gen(w_mlx *mlx)
 		j++;
 	}
 }
+
+int ft_key_check(char **map)
+{
+	int	i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (map[j] != NULL)
+	{
+		i = 0;
+		while (map[j][i] != '\n')
+		{
+			if (map[j][i] == 'C')
+				return (0);
+			i++;
+		}
+		j++;
+	}
+	return(1);
+}

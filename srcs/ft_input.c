@@ -11,6 +11,8 @@ static void ft_mov(w_mlx *mlx, int x, int y, int direction)
 		ft_mlx_print_img(mlx, LEFT_IMG, x, y);
 	else if (direction == D_KEY)
 		ft_mlx_print_img(mlx, RIGHT_IMG, x, y);
+	else
+		ft_mlx_print_img(mlx, DOWN_IMG, x, y);
 }
 
 static int ft_can_mov(w_mlx *mlx, int x, int y)
@@ -25,27 +27,6 @@ static int ft_can_mov(w_mlx *mlx, int x, int y)
 		mlx->steps++;
 		return (1);
 	}
-}
-
-static int ft_key_check(char **map)
-{
-	int	i;
-	int j;
-
-	i = 0;
-	j = 0;
-	while (map[j] != NULL)
-	{
-		i = 0;
-		while (map[j][i] != '\n')
-		{
-			if (map[j][i] == 'C')
-				return (0);
-			i++;
-		}
-		j++;
-	}
-	return(1);
 }
 
 int ft_event(w_mlx *mlx, int px, int py)

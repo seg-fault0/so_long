@@ -13,5 +13,5 @@ lldb:
 	clang -g $(I) $(src) $(L)
 	lldb ./a.out
 
-key:
-	cc $(I) ./.Trash/key.c $(L) 
+test:
+	cc $(I) test.c $(L) 
