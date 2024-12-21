@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_input.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/21 16:24:10 by wimam             #+#    #+#             */
+/*   Updated: 2024/12/21 16:29:42 by wimam            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-static void ft_mov(w_mlx *mlx, int x, int y, int direction)
+static void	ft_mov(t_mlx *mlx, int x, int y, int direction)
 {
 	ft_map_gen(mlx);
 	if (direction == W_KEY)
@@ -15,7 +27,7 @@ static void ft_mov(w_mlx *mlx, int x, int y, int direction)
 		ft_mlx_print_img(mlx, DOWN_IMG, x, y);
 }
 
-static int ft_can_mov(w_mlx *mlx, int x, int y)
+static int	ft_can_mov(t_mlx *mlx, int x, int y)
 {
 	int	obg;
 
@@ -29,9 +41,9 @@ static int ft_can_mov(w_mlx *mlx, int x, int y)
 	}
 }
 
-int ft_event(w_mlx *mlx, int px, int py)
+int	ft_event(t_mlx *mlx, int px, int py)
 {
-	int current;
+	int	current;
 
 	current = mlx->map[py][px];
 	if (current == 'C')
@@ -48,15 +60,14 @@ int ft_event(w_mlx *mlx, int px, int py)
 		write(1, "YOU LOST!!", 10);
 		ft_exit(mlx);
 	}
-	
 }
 
-int ft_input(int keycode, w_mlx *mlx)
+int	ft_input(int keycode, t_mlx *mlx)
 {
-	static	int	xpo;
-	static	int	ypo;
+	static int	xpo;
+	static int	ypo;
 
-	if(xpo == 0 &&  ypo == 0)
+	if (xpo == 0 && ypo == 0)
 	{
 		xpo = mlx->cord.x_spwn;
 		ypo = mlx->cord.y_spwn;

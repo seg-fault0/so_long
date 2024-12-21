@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_map.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/21 16:24:51 by wimam             #+#    #+#             */
+/*   Updated: 2024/12/21 16:29:47 by wimam            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-int ft_get_coordinates(char **map, int obg, int axis)
+int	ft_get_coordinates(char **map, int obg, int axis)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -17,12 +29,12 @@ int ft_get_coordinates(char **map, int obg, int axis)
 			i++;
 		}
 		if (map[j][i] == obg)
-				break ;
+			break ;
 		j++;
 	}
 	if (axis == 'x')
 		return (i);
-	else if(axis == 'y')
+	else if (axis == 'y')
 		return (j);
 }
 
@@ -50,10 +62,10 @@ char	**ft_get_map(int fd)
 	return (map);
 }
 
-void	ft_map_gen(w_mlx *mlx)
+void	ft_map_gen(t_mlx *mlx)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -62,14 +74,14 @@ void	ft_map_gen(w_mlx *mlx)
 		i = 0;
 		while (mlx->map[j][i] != '\n')
 		{
-			if(mlx->map[j][i] == '1')
+			if (mlx->map[j][i] == '1')
 				ft_mlx_print_img(mlx, WALL_PATH, i, j);
-			else if(mlx->map[j][i] == 'C' && mlx->collected == 0)
+			else if (mlx->map[j][i] == 'C' && mlx->collected == 0)
 				ft_mlx_print_img(mlx, KEY_PATH, i, j);
-			else if(mlx->map[j][i] == 'E')
+			else if (mlx->map[j][i] == 'E')
 				ft_mlx_print_img(mlx, DOOR_PATH, i, j);
-			else if(mlx->map[j][i] == 'B')
-				ft_mlx_print_img(mlx, FOX_PATH,i , j);
+			else if (mlx->map[j][i] == 'B')
+				ft_mlx_print_img(mlx, FOX_PATH, i, j);
 			else
 				ft_mlx_print_img(mlx, FLOOR_PATH, i, j);
 			i++;
@@ -78,10 +90,10 @@ void	ft_map_gen(w_mlx *mlx)
 	}
 }
 
-int ft_key_check(char **map)
+int	ft_key_check(char **map)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -96,5 +108,5 @@ int ft_key_check(char **map)
 		}
 		j++;
 	}
-	return(1);
+	return (1);
 }

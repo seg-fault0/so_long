@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/21 16:27:59 by wimam             #+#    #+#             */
+/*   Updated: 2024/12/21 16:33:51 by wimam            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 //Header Guard
 #ifndef SO_LONG_H
 # define SO_LONG_H
@@ -7,7 +19,6 @@
 # define IMG_SIZE 64
 
 //PATHS
-# define PLAYER_PATH "./textures/player/down/1.xpm"
 # define WALL_PATH "./textures/map/wall.xpm"
 # define FLOOR_PATH "./textures/map/floor.xpm"
 # define KEY_PATH "./textures/map/key.xpm"
@@ -28,42 +39,40 @@
 //STD Libraries
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <fcntl.h>
 
 //NONSTD Libraries
 # include "mlx.h"
-# include "mlx_int.h"
 # include "get_next_line.h"
 
 //Structures
-typedef struct
+typedef struct s_cord
 {
-	int x_spwn;
-	int y_spwn;
-}w_cord;
+	int	x_spwn;
+	int	y_spwn;
+}t_cord;
 
-typedef struct 
+typedef struct s_mlx
 {
 	void	*mlx;
 	void	*win;
 	char	**map;
-	w_cord	cord;
+	t_cord	cord;
 	int		collected;
 	int		steps;
-}w_mlx;
+}t_mlx;
 
 //Prototypes
-w_mlx	*ft_mlx_init();
+t_mlx	*ft_mlx_init(void);
 char	**ft_get_map(int fd);
-int		ft_input(int keycode, w_mlx *mlx);
-void	ft_map_gen(w_mlx *mlx);
-void	ft_mlx_print_img(w_mlx *mlx, char *path, int x, int y);
-void	ft_exit(w_mlx *mlx);
+int		ft_input(int keycode, t_mlx *mlx);
+void	ft_map_gen(t_mlx *mlx);
+void	ft_mlx_print_img(t_mlx *mlx, char *path, int x, int y);
+void	ft_exit(t_mlx *mlx);
 int		ft_get_coordinates(char **map, int obg, int axis);
 int		ft_get_win_size(char **map, int axis);
 char	*ft_itoa(int n);
 int		ft_key_check(char **map);
-void ft_win(w_mlx *mlx);
+void	ft_win(t_mlx *mlx);
 
 #endif
