@@ -38,8 +38,17 @@ int ft_event(w_mlx *mlx, int px, int py)
 		mlx->map[py][px] = '0';
 	if (ft_key_check(mlx->map))
 		mlx->collected = 1;
-	if (current == 'E' && mlx->collected == 1)
+	if ((current == 'E' && mlx->collected == 1))
+	{
+		write(1, "YOU WIN!!", 9);
 		ft_exit(mlx);
+	}
+	if (current == 'B')
+	{
+		write(1, "YOU LOST!!", 10);
+		ft_exit(mlx);
+	}
+	
 }
 
 int ft_input(int keycode, w_mlx *mlx)

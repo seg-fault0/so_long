@@ -64,5 +64,6 @@ int		ft_get_coordinates(char **map, int obg, int axis);
 int		ft_get_win_size(char **map, int axis);
 char	*ft_itoa(int n);
 int		ft_key_check(char **map);
+void ft_win(w_mlx *mlx);
 
 #endif
