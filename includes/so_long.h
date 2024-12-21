@@ -36,22 +36,33 @@
 # include "get_next_line.h"
 
 //Structures
+typedef struct
+{
+	int x_spwn;
+	int y_spwn;
+	int x_key;
+	int y_key;
+	int x_door;
+	int y_door;
+}w_cord;
+
 typedef struct 
 {
 	void	*mlx;
 	void	*win;
 	char	**map;
-	int		x_spwn;
-	int		y_spwn;
+	w_cord	cord;
+	int		collected;
 }w_mlx;
 
 //Prototypes
-w_mlx	*ft_mlx_init(w_mlx *mlx, int with, int height);
+w_mlx	*ft_mlx_init();
 char	**ft_get_map(int fd);
 int		ft_input(int keycode, w_mlx *mlx);
 void	ft_map_gen(w_mlx *mlx);
 void	ft_mlx_print_img(w_mlx *mlx, char *path, int x, int y);
 void	ft_exit(w_mlx *mlx);
 int		ft_getcoordinates(char **map, int obg, int axis);
+int		ft_get_win_size(char **map, int axis);
 
 #endif

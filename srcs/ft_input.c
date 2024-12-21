@@ -2,14 +2,6 @@
 
 static void ft_mov(w_mlx *mlx, int x, int y, int direction)
 {
-	int static reset;
-	if (reset < 10)
-		reset++;
-	else
-	{
-		mlx_clear_window(mlx->mlx, mlx->win);
-		reset = 0;
-	}
 	ft_map_gen(mlx);
 	if (direction == W_KEY)
 		ft_mlx_print_img(mlx, UP_IMG, x, y);
@@ -26,10 +18,18 @@ static int ft_can_mov(w_mlx *mlx, int x, int y)
 	int	obg;
 
 	obg = mlx->map[y][x];
-	if (obg == '1')
+	if (obg == '1' || obg == 'E' && mlx->collected == 0)
 		return (0);
 	else
 		return (1);
+}
+
+int ft_event(w_mlx *mlx, int px, int py)
+{
+	if (px == mlx->cord.x_key && py == mlx->cord.y_key)
+		mlx->collected = 1;
+	else if (px == mlx->cord.x_door && py == mlx->cord.y_door && mlx->collected == 1)
+		ft_exit(mlx);
 }
 
 int ft_input(int keycode, w_mlx *mlx)
@@ -39,8 +39,8 @@ int ft_input(int keycode, w_mlx *mlx)
 
 	if(xpo == 0 &&  ypo == 0)
 	{
-		xpo = mlx->x_spwn;
-		ypo = mlx->y_spwn;
+		xpo = mlx->cord.x_spwn;
+		ypo = mlx->cord.y_spwn;
 	}
 	if (keycode == ESC_KEY)
 		ft_exit(mlx);
@@ -53,4 +53,5 @@ int ft_input(int keycode, w_mlx *mlx)
 	else if (keycode == D_KEY && ft_can_mov(mlx, xpo + 1, ypo))
 		xpo += 1;
 	ft_mov(mlx, xpo, ypo, keycode);
+	ft_event(mlx, xpo, ypo);
 }

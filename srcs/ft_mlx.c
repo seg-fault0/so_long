@@ -1,20 +1,24 @@
 #include "so_long.h"
 
-w_mlx	*ft_mlx_init(w_mlx *mlx, int with, int height)
+w_mlx	*ft_mlx_init()
 {
 	int fd;
-	
+	w_mlx *mlx;
+
 	fd = open("maps/map.ber", O_RDWR);
 	mlx = malloc(sizeof(w_mlx));
 
 	mlx->mlx = mlx_init();
-	mlx->win = mlx_new_window(mlx->mlx, with, height, "so_long");
 	mlx->map  = ft_get_map(fd);
-	mlx->x_spwn = ft_getcoordinates(mlx->map, 'P', 'x');
-	mlx->y_spwn = ft_getcoordinates(mlx->map, 'P', 'y');
+	mlx->cord.x_spwn = ft_getcoordinates(mlx->map, 'P', 'x');
+	mlx->cord.y_spwn = ft_getcoordinates(mlx->map, 'P', 'y');
+	mlx->cord.x_key = ft_getcoordinates(mlx->map, 'C', 'x');
+	mlx->cord.y_key = ft_getcoordinates(mlx->map, 'C', 'y');
+	mlx->cord.x_door = ft_getcoordinates(mlx->map, 'E','x');
+	mlx->cord.y_door = ft_getcoordinates(mlx->map, 'E', 'y');
+	mlx->collected = 0;
 
-	ft_map_gen(mlx);
-	ft_mlx_print_img(mlx, DOWN_IMG, mlx->x_spwn, mlx->y_spwn);
+
 	return (mlx);
 }
 

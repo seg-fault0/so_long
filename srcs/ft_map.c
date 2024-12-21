@@ -1,5 +1,25 @@
 #include "so_long.h"
 
+int ft_get_win_size(char **map, int axis)
+{
+	int	i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (map[j] != NULL)
+	{
+		i = 0;
+		while (map[j][i] != '\n')
+			i++;
+		j++;
+	}
+	if (axis == 'w')
+		return (i);
+	else if(axis == 'h')
+		return (j);
+}
+
 int ft_getcoordinates(char **map, int obg, int axis)
 {
 	int	i;
@@ -64,7 +84,7 @@ void	ft_map_gen(w_mlx *mlx)
 		{
 			if(mlx->map[j][i] == '1')
 				ft_mlx_print_img(mlx, WALL_PATH, i, j);
-			else if(mlx->map[j][i] == 'C')
+			else if(mlx->map[j][i] == 'C' && mlx->collected == 0)
 				ft_mlx_print_img(mlx, KEY_PATH, i, j);
 			else if(mlx->map[j][i] == 'E')
 				ft_mlx_print_img(mlx, DOOR_PATH, i, j);
