@@ -1,5 +1,31 @@
 #include "so_long.h"
 
+int ft_getcoordinates(char **map, int obg, int axis)
+{
+	int	i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (map[j] != NULL)
+	{
+		i = 0;
+		while (map[j][i] != '\n')
+		{
+			if (map[j][i] == obg)
+				break ;
+			i++;
+		}
+		if (map[j][i] == obg)
+				break ;
+		j++;
+	}
+	if (axis == 'x')
+		return (j);
+	else if(axis == 'y')
+		return (i);
+}
+
 char	**ft_get_map(int fd)
 {
 	char	*tmp_map[MAX_COL];

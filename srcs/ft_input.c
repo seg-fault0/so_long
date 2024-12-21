@@ -23,10 +23,15 @@ static void ft_mov(w_mlx *mlx, int x, int y, int direction)
 
 int ft_input(int keycode, w_mlx *mlx)
 {
-	static	float	xpo;
-	static	float	ypo;
+	static	int	xpo;
+	static	int	ypo;
 	float	speed;
 
+	if(xpo == 0 &&  ypo == 0)
+	{
+		xpo = mlx->x_spwn;
+		ypo = mlx->y_spwn;
+	}
 	speed = 64;
 	if (keycode == ESC_KEY)
 		ft_exit(mlx);

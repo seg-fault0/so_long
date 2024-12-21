@@ -41,6 +41,8 @@ typedef struct
 	void	*mlx;
 	void	*win;
 	char	**map;
+	int		x_spwn;
+	int		y_spwn;
 }w_mlx;
 
 //Prototypes
@@ -50,5 +52,6 @@ int		ft_input(int keycode, w_mlx *mlx);
 void	ft_map_gen(w_mlx *mlx);
 void	ft_mlx_print_img(w_mlx *mlx, char *path, int x, int y);
 void	ft_exit(w_mlx *mlx);
+int		ft_getcoordinates(char **map, int obg, int axis);
 
 #endif
