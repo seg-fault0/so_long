@@ -40,10 +40,6 @@ typedef struct
 {
 	int x_spwn;
 	int y_spwn;
-	int x_key;
-	int y_key;
-	int x_door;
-	int y_door;
 }w_cord;
 
 typedef struct 

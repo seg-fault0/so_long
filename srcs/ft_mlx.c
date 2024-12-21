@@ -12,10 +12,6 @@ w_mlx	*ft_mlx_init()
 	mlx->map  = ft_get_map(fd);
 	mlx->cord.x_spwn = ft_getcoordinates(mlx->map, 'P', 'x');
 	mlx->cord.y_spwn = ft_getcoordinates(mlx->map, 'P', 'y');
-	mlx->cord.x_key = ft_getcoordinates(mlx->map, 'C', 'x');
-	mlx->cord.y_key = ft_getcoordinates(mlx->map, 'C', 'y');
-	mlx->cord.x_door = ft_getcoordinates(mlx->map, 'E','x');
-	mlx->cord.y_door = ft_getcoordinates(mlx->map, 'E', 'y');
 	mlx->collected = 0;
 
 

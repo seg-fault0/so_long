@@ -18,7 +18,7 @@ static int ft_can_mov(w_mlx *mlx, int x, int y)
 	int	obg;
 
 	obg = mlx->map[y][x];
-	if (obg == '1' || obg == 'E' && mlx->collected == 0)
+	if (obg == '1' || (obg == 'E' && mlx->collected == 0))
 		return (0);
 	else
 	{
@@ -27,11 +27,37 @@ static int ft_can_mov(w_mlx *mlx, int x, int y)
 	}
 }
 
+static int ft_key_check(char **map)
+{
+	int	i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (map[j] != NULL)
+	{
+		i = 0;
+		while (map[j][i] != '\n')
+		{
+			if (map[j][i] == 'C')
+				return (0);
+			i++;
+		}
+		j++;
+	}
+	return(1);
+}
+
 int ft_event(w_mlx *mlx, int px, int py)
 {
-	if (px == mlx->cord.x_key && py == mlx->cord.y_key)
+	int current;
+
+	current = mlx->map[py][px];
+	if (current == 'C')
+		mlx->map[py][px] = '0';
+	if (ft_key_check(mlx->map))
 		mlx->collected = 1;
-	else if (px == mlx->cord.x_door && py == mlx->cord.y_door && mlx->collected == 1)
+	if (current == 'E' && mlx->collected == 1)
 		ft_exit(mlx);
 }
 
