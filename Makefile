@@ -1,17 +1,30 @@
+# Source files and other variables
+SRC = srcs/*.c
 I = -I includes/
-L = -L libraries/ -lmlx_Linux -lX11 -lXext -lgnl
+L = -L libraries/ -lmlx_Linux -lX11 -lXext
+NAME = so_long
 
-src = srcs/*.c
+# All target: compiles everything
+all: mlx
+	cc $(I) $(SRC) $(L) -o $(NAME)
 
-name = so_long
+# Compile mlx
+mlx:
+	tar -xvzf minilibx-linux.tgz
+	cd minilibx-linux && make
+	cd ..
+	mv minilibx-linux/*.a libraries/
+	mv minilibx-linux/mlx.h includes/
 
-all:
-	cc $(I) $(src) $(L) -o $(name)
-	./$(name) "maps/map.ber"
+clean:
+	rm -f libraries/*
+	rm -f includes/mlx.h
+	rm -f $(NAME)
 
-lldb:
-	clang -g $(I) $(src) $(L)
-	lldb ./a.out
+fclean: clean
+	cd minilibx-linux/ && make clean
+	cd ..
 
-test:
-	cc $(I) test.c $(L) 
+re : fclean all
+
+.PHONEY: clean mlx
