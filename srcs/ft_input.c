@@ -21,7 +21,10 @@ static int ft_can_mov(w_mlx *mlx, int x, int y)
 	if (obg == '1' || obg == 'E' && mlx->collected == 0)
 		return (0);
 	else
+	{
+		mlx->steps++;
 		return (1);
+	}
 }
 
 int ft_event(w_mlx *mlx, int px, int py)

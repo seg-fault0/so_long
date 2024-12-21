@@ -53,6 +53,7 @@ typedef struct
 	char	**map;
 	w_cord	cord;
 	int		collected;
+	int		steps;
 }w_mlx;
 
 //Prototypes
@@ -64,5 +65,6 @@ void	ft_mlx_print_img(w_mlx *mlx, char *path, int x, int y);
 void	ft_exit(w_mlx *mlx);
 int		ft_getcoordinates(char **map, int obg, int axis);
 int		ft_get_win_size(char **map, int axis);
+char	*ft_itoa(int n);
 
 #endif
