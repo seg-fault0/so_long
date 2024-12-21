@@ -32,7 +32,7 @@ int ft_input(int keycode, w_mlx *mlx)
 		xpo = mlx->x_spwn;
 		ypo = mlx->y_spwn;
 	}
-	speed = 64;
+	speed = 1;
 	if (keycode == ESC_KEY)
 		ft_exit(mlx);
 	else if (keycode == W_KEY)

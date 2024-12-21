@@ -21,9 +21,9 @@ int ft_getcoordinates(char **map, int obg, int axis)
 		j++;
 	}
 	if (axis == 'x')
-		return (j);
-	else if(axis == 'y')
 		return (i);
+	else if(axis == 'y')
+		return (j);
 }
 
 char	**ft_get_map(int fd)
@@ -63,13 +63,13 @@ void	ft_map_gen(w_mlx *mlx)
 		while (mlx->map[j][i] != '\n')
 		{
 			if(mlx->map[j][i] == '1')
-				ft_mlx_print_img(mlx, WALL_PATH, i * IMG_SIZE, j * IMG_SIZE);
+				ft_mlx_print_img(mlx, WALL_PATH, i, j);
 			else if(mlx->map[j][i] == 'C')
-				ft_mlx_print_img(mlx, KEY_PATH, i * IMG_SIZE, j * IMG_SIZE);
+				ft_mlx_print_img(mlx, KEY_PATH, i, j);
 			else if(mlx->map[j][i] == 'E')
-				ft_mlx_print_img(mlx, DOOR_PATH, i * IMG_SIZE, j * IMG_SIZE);
+				ft_mlx_print_img(mlx, DOOR_PATH, i, j);
 			else
-				ft_mlx_print_img(mlx, FLOOR_PATH, i * IMG_SIZE, j * IMG_SIZE);
+				ft_mlx_print_img(mlx, FLOOR_PATH, i, j);
 			i++;
 		}
 		j++;
