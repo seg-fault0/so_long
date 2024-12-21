@@ -1,21 +1,41 @@
 #include "so_long.h"
 
+void *ft_create_win(w_mlx *mlx)
+{
+	void	*win;
+	int		height; 
+	int		with;
+
+	height = ft_get_coordinates(mlx->map, 'h', 'y');
+	with = ft_get_coordinates(mlx->map, 'w', 'x');
+	win = mlx_new_window(mlx->mlx, with * IMG_SIZE, height * IMG_SIZE, "so_long");
+	return (win);
+}
+
 w_mlx	*ft_mlx_init()
 {
 	int fd;
 	w_mlx *mlx;
+
 
 	fd = open("maps/map.ber", O_RDWR);
 	mlx = malloc(sizeof(w_mlx));
 
 	mlx->mlx = mlx_init();
 	mlx->map  = ft_get_map(fd);
-	mlx->cord.x_spwn = ft_getcoordinates(mlx->map, 'P', 'x');
-	mlx->cord.y_spwn = ft_getcoordinates(mlx->map, 'P', 'y');
+	mlx->win = ft_create_win(mlx);
+	mlx->cord.x_spwn = ft_get_coordinates(mlx->map, 'P', 'x');
+	mlx->cord.y_spwn = ft_get_coordinates(mlx->map, 'P', 'y');
 	mlx->collected = 0;
 
-
+	ft_first_gen(mlx);
 	return (mlx);
+}
+
+void	ft_first_gen(w_mlx *mlx)
+{
+	ft_map_gen(mlx);
+	ft_mlx_print_img(mlx, DOWN_IMG, mlx->cord.x_spwn, mlx->cord.y_spwn);
 }
 
 void ft_mlx_print_img(w_mlx *mlx, char *path, int x, int y)

@@ -59,7 +59,7 @@ int		ft_input(int keycode, w_mlx *mlx);
 void	ft_map_gen(w_mlx *mlx);
 void	ft_mlx_print_img(w_mlx *mlx, char *path, int x, int y);
 void	ft_exit(w_mlx *mlx);
-int		ft_getcoordinates(char **map, int obg, int axis);
+int		ft_get_coordinates(char **map, int obg, int axis);
 int		ft_get_win_size(char **map, int axis);
 char	*ft_itoa(int n);
 int		ft_key_check(char **map);

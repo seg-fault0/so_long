@@ -1,26 +1,6 @@
 #include "so_long.h"
 
-int ft_get_win_size(char **map, int axis)
-{
-	int	i;
-	int j;
-
-	i = 0;
-	j = 0;
-	while (map[j] != NULL)
-	{
-		i = 0;
-		while (map[j][i] != '\n')
-			i++;
-		j++;
-	}
-	if (axis == 'w')
-		return (i);
-	else if(axis == 'h')
-		return (j);
-}
-
-int ft_getcoordinates(char **map, int obg, int axis)
+int ft_get_coordinates(char **map, int obg, int axis)
 {
 	int	i;
 	int j;
