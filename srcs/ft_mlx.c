@@ -28,14 +28,9 @@ w_mlx	*ft_mlx_init()
 	mlx->cord.y_spwn = ft_get_coordinates(mlx->map, 'P', 'y');
 	mlx->collected = 0;
 
-	ft_first_gen(mlx);
-	return (mlx);
-}
-
-void	ft_first_gen(w_mlx *mlx)
-{
 	ft_map_gen(mlx);
 	ft_mlx_print_img(mlx, DOWN_IMG, mlx->cord.x_spwn, mlx->cord.y_spwn);
+	return (mlx);
 }
 
 void ft_mlx_print_img(w_mlx *mlx, char *path, int x, int y)
