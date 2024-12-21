@@ -22,8 +22,7 @@ clean:
 	rm -f $(NAME)
 
 fclean: clean
-	cd minilibx-linux/ && make clean
-	cd ..
+	rm -fr minilibx-linux
 
 re : fclean all
 

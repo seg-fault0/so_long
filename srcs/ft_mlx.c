@@ -6,7 +6,7 @@
 /*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:26:02 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/21 16:35:38 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/21 18:17:11 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,19 @@ void	*ft_create_win(t_mlx *mlx)
 	return (win);
 }
 
-t_mlx	*ft_mlx_init(void)
+t_mlx	*ft_mlx_init(char *str)
 {
 	int		fd;
 	t_mlx	*mlx;
 
-
-	fd = open("maps/map.ber", O_RDWR);
+	fd = open(str, O_RDWR);
 	mlx = malloc(sizeof(t_mlx));
-
 	mlx->mlx = mlx_init();
 	mlx->map = ft_get_map(fd);
 	mlx->win = ft_create_win(mlx);
 	mlx->cord.x_spwn = ft_get_coordinates(mlx->map, 'P', 'x');
 	mlx->cord.y_spwn = ft_get_coordinates(mlx->map, 'P', 'y');
 	mlx->collected = 0;
-
 	ft_map_gen(mlx);
 	ft_mlx_print_img(mlx, DOWN_IMG, mlx->cord.x_spwn, mlx->cord.y_spwn);
 	return (mlx);

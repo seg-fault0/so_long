@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wimam <walidimam69@gmail.com>              +#+  +:+       +#+        */
+/*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 05:04:55 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/03 21:52:31 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/21 18:14:53 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static char	*ft_get_line(char	*data)
 		line[i] = data[i];
 		i++;
 	}
-	line[i] = data[i];
+	line[i] = '\n';
 	line[++i] = '\0';
 	return (line);
 }

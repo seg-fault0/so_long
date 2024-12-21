@@ -6,7 +6,7 @@
 /*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:05 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/21 18:06:09 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/21 18:17:20 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ int	main(int argc, char *argv[])
 {
 	t_mlx	*mlx;
 
-	mlx = ft_mlx_init();
-
+	if (argc != 2)
+		return (0);
+	mlx = ft_mlx_init(argv[1]);
 	mlx_key_hook(mlx->win, ft_input, mlx);
 	mlx_hook(mlx->win, 17, 0, ft_close_window, mlx);
 	mlx_loop(mlx->mlx);
