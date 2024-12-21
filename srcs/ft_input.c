@@ -21,27 +21,36 @@ static void ft_mov(w_mlx *mlx, int x, int y, int direction)
 		ft_mlx_print_img(mlx, RIGHT_IMG, x, y);
 }
 
+static int ft_can_mov(w_mlx *mlx, int x, int y)
+{
+	int	obg;
+
+	obg = mlx->map[y][x];
+	if (obg == '1')
+		return (0);
+	else
+		return (1);
+}
+
 int ft_input(int keycode, w_mlx *mlx)
 {
 	static	int	xpo;
 	static	int	ypo;
-	float	speed;
 
 	if(xpo == 0 &&  ypo == 0)
 	{
 		xpo = mlx->x_spwn;
 		ypo = mlx->y_spwn;
 	}
-	speed = 1;
 	if (keycode == ESC_KEY)
 		ft_exit(mlx);
-	else if (keycode == W_KEY)
-		ypo -= speed;
-	else if (keycode == S_KEY)
-		ypo += speed;
-	else if (keycode == A_KEY)
-		xpo -= speed;
-	else if (keycode == D_KEY)
-		xpo += speed;
+	else if (keycode == W_KEY && ft_can_mov(mlx, xpo, ypo - 1))
+		ypo -= 1;
+	else if (keycode == S_KEY && ft_can_mov(mlx, xpo, ypo + 1))
+		ypo += 1;
+	else if (keycode == A_KEY && ft_can_mov(mlx, xpo - 1, ypo))
+		xpo -= 1;
+	else if (keycode == D_KEY && ft_can_mov(mlx, xpo + 1, ypo))
+		xpo += 1;
 	ft_mov(mlx, xpo, ypo, keycode);
 }
