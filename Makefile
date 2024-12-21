@@ -1,24 +1,24 @@
 # Source files and other variables
 SRC = srcs/*.c
-I = -I includes/
-L = -L libraries/ -lmlx_Linux -lX11 -lXext
+L = -L ./ -lmlx_Linux -lX11 -lXext
+I = -I ./
 NAME = so_long
 
 # All target: compiles everything
 all: mlx
-	cc $(I) $(SRC) $(L) -o $(NAME)
+	cc $(SRC) $(I) $(L) -o $(NAME)
 
 # Compile mlx
 mlx:
 	tar -xvzf minilibx-linux.tgz
 	cd minilibx-linux && make
 	cd ..
-	mv minilibx-linux/*.a libraries/
-	mv minilibx-linux/mlx.h includes/
+	mv minilibx-linux/libmlx_Linux.a .
+	mv minilibx-linux/mlx.h .
 
 clean:
-	rm -f libraries/*
-	rm -f includes/mlx.h
+	rm -f *.a
+	rm -f mlx.h
 	rm -f $(NAME)
 
 fclean: clean
