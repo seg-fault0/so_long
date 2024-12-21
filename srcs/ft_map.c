@@ -68,6 +68,8 @@ void	ft_map_gen(w_mlx *mlx)
 				ft_mlx_print_img(mlx, KEY_PATH, i, j);
 			else if(mlx->map[j][i] == 'E')
 				ft_mlx_print_img(mlx, DOOR_PATH, i, j);
+			else if(mlx->map[j][i] == 'B')
+				ft_mlx_print_img(mlx, FOX_PATH,i , j);
 			else
 				ft_mlx_print_img(mlx, FLOOR_PATH, i, j);
 			i++;

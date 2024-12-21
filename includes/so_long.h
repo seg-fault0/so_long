@@ -12,6 +12,7 @@
 # define FLOOR_PATH "./textures/map/floor.xpm"
 # define KEY_PATH "./textures/map/key.xpm"
 # define DOOR_PATH "./textures/map/door.xpm"
+# define FOX_PATH "./textures/map/fox.xpm"
 # define UP_IMG	"./textures/player/up.xpm"
 # define DOWN_IMG "./textures/player/down.xpm"
 # define RIGHT_IMG "./textures/player/right.xpm"
