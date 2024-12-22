@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
+/*   By: wimam <walidimam@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:26:02 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/22 10:25:51 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 16:32:41 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ t_mlx	*ft_mlx_init(char *str)
 		return (free(mlx), NULL);
 	mlx->mlx = mlx_init();
 	if (!mlx->mlx)
-		return (free(mlx), close(mlx->fd), NULL);
+		return (close(mlx->fd), free(mlx), NULL);
 	mlx->map = ft_get_map(mlx->fd);
 	if (!mlx->map)
-		return (free(mlx), close(mlx->fd), NULL);
+		return (close(mlx->fd), free(mlx), NULL);
 	mlx->win = ft_create_win(mlx);
 	if (!mlx->win)
-		return (ft_free_map(mlx->map), free(mlx), close(mlx->fd), NULL);
+		return (ft_free_map(mlx->map), close(mlx->fd), free(mlx), NULL);
 	mlx->px = ft_get_coordinates(mlx->map, 'P', 'x');
 	mlx->py = ft_get_coordinates(mlx->map, 'P', 'y');
 	mlx->keys = ft_key_count(mlx->map);
