@@ -1,14 +1,12 @@
-# Source files and other variables
 SRC = srcs/*.c
 L = -L ./ -lmlx_Linux -lX11 -lXext
 I = -I ./
 NAME = so_long
+FLAGS = -Wall -Wextra -Werror
 
-# All target: compiles everything
 all: mlx
-	clang -g $(SRC) $(I) $(L) -o $(NAME)
+	cc $(FLAGS) $(SRC) $(I) $(L) -o $(NAME)
 
-# Compile mlx
 mlx:
 	tar -xvzf minilibx-linux.tgz
 	cd minilibx-linux && make
@@ -17,12 +15,11 @@ mlx:
 	mv minilibx-linux/mlx.h .
 
 clean:
-	rm -f *.a
-	rm -f mlx.h
-	rm -f $(NAME)
+	rm -fr minilibx-linux
 
 fclean: clean
-	rm -fr minilibx-linux
+	rm -f *.a
+	rm -f mlx.h
 
 re : fclean all
 
