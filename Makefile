@@ -6,7 +6,7 @@ NAME = so_long
 
 # All target: compiles everything
 all: mlx
-	cc $(SRC) $(I) $(L) -o $(NAME)
+	clang -g $(SRC) $(I) $(L) -o $(NAME)
 
 # Compile mlx
 mlx:

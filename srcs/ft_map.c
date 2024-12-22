@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
+/*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:51 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/22 09:41:59 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 10:33:44 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,38 @@ int	ft_get_coordinates(char **map, int obg, int axis)
 		return (i);
 	else if (axis == 'y')
 		return (j);
+	return (0);
+}
+
+void	ft_free_map(char **map)
+{
+	int	i;
+
+	if (!map)
+		return ;
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+}
+
+char	**ft_ckeck_map(char **map)
+{
+	int	key;
+	int	max_x;
+	int	player_x;
+	int	exit_x;
+
+	key = ft_key_count(map);
+	max_x = ft_get_coordinates(map, 'S', 'x');
+	player_x = ft_get_coordinates(map, 'P', 'x');
+	exit_x = ft_get_coordinates(map, 'E', 'x');
+	if (key <= 0 || player_x == max_x || exit_x == max_x)
+		return (ft_free_map(map), NULL);
+	return (map);
 }
 
 char	**ft_get_map(int fd)
@@ -59,6 +91,7 @@ char	**ft_get_map(int fd)
 	while (++j < i)
 		map[j] = tmp_map[j];
 	map[i] = NULL;
+	map = ft_ckeck_map(map);
 	return (map);
 }
 
@@ -88,42 +121,4 @@ void	ft_map_gen(t_mlx *mlx)
 		}
 		j++;
 	}
-}
-
-int	ft_key_count(char **map)
-{
-	int	i;
-	int	j;
-	int	count;
-
-	i = 0;
-	j = 0;
-	count = 0;
-	while (map[j] != NULL)
-	{
-		i = 0;
-		while (map[j][i] != '\n')
-		{
-			if (map[j][i] == 'C')
-				count++;
-			i++;
-		}
-		j++;
-	}
-	return (count);
-}
-
-void	ft_free_map(char **map)
-{
-	int	i;
-
-	if (!map)
-		return ;
-	i = 0;
-	while (map[i])
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
 }

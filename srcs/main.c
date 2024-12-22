@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
+/*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:05 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/21 18:17:20 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 10:31:03 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@ int	main(int argc, char *argv[])
 	t_mlx	*mlx;
 
 	if (argc != 2)
-		return (0);
+		return (-1);
 	mlx = ft_mlx_init(argv[1]);
+	if (!mlx)
+		return (-1);
 	mlx_key_hook(mlx->win, ft_input, mlx);
 	mlx_hook(mlx->win, 17, 0, ft_close_window, mlx);
 	mlx_loop(mlx->mlx);
+	return (0);
 }
