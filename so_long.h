@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
+/*   By: wimam <walidimam@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:59 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/22 10:49:36 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 16:39:19 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,12 @@ char	**ft_get_map(int fd);
 int		ft_input(int keycode, t_mlx *mlx);
 void	ft_map_gen(t_mlx *mlx);
 void	ft_mlx_print_img(t_mlx *mlx, char *path, int x, int y);
-void	ft_exit(t_mlx *mlx);
+int		ft_exit(t_mlx *mlx);
 int		ft_get_coordinates(char **map, int obg, int axis);
 int		ft_get_win_size(char **map, int axis);
 char	*ft_itoa(int n);
 int		ft_key_count(char **map);
 void	ft_win(t_mlx *mlx);
 void	ft_free_map(char **map);
-int		ft_close_window(t_mlx *mlx);
 
 #endif
