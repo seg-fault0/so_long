@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:59 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/22 10:26:39 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 10:38:32 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # define SO_LONG_H
 
 //Macros
-# define MAX_COL 1000000
+# define MAX_COL 100
 # define IMG_SIZE 64
 
 //PATHS
