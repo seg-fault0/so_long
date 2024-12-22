@@ -6,7 +6,7 @@
 /*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:51 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/22 09:35:39 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 09:41:59 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	ft_free_map(char **map)
 	int	i;
 
 	if (!map)
-		return;
+		return ;
 	i = 0;
 	while (map[i])
 	{
