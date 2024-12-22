@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:51 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/22 10:33:44 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 11:30:33 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,10 @@ char	**ft_ckeck_map(char **map)
 	player_x = ft_get_coordinates(map, 'P', 'x');
 	exit_x = ft_get_coordinates(map, 'E', 'x');
 	if (key <= 0 || player_x == max_x || exit_x == max_x)
+	{
+		write(1, "ERROR : wrong map", 17);
 		return (ft_free_map(map), NULL);
+	}
 	return (map);
 }
 
