@@ -6,7 +6,7 @@
 /*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:26:02 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/22 09:26:07 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 09:38:16 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,20 @@ t_mlx	*ft_mlx_init(char *str)
 	t_mlx	*mlx;
 
 	mlx = malloc(sizeof(t_mlx));
+	if (!mlx)
+		return (NULL);
 	mlx->fd = open(str, O_RDWR);
+	if (mlx->fd < 0)
+		return (free(mlx), NULL);
 	mlx->mlx = mlx_init();
+	if (!mlx->mlx)
+		return (free(mlx), close(mlx->fd), NULL);
 	mlx->map = ft_get_map(mlx->fd);
+	if (!mlx->map)
+		return (free(mlx), close(mlx->fd), NULL);
 	mlx->win = ft_create_win(mlx);
+	if (!mlx->win)
+		return (ft_free_map(mlx->map), free(mlx), close(mlx->fd), NULL);
 	mlx->px = ft_get_coordinates(mlx->map, 'P', 'x');
 	mlx->py = ft_get_coordinates(mlx->map, 'P', 'y');
 	mlx->keys = ft_key_count(mlx->map);

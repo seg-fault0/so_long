@@ -6,7 +6,7 @@
 /*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:10 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/22 09:27:09 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 09:39:28 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,10 @@ static int	ft_can_mov(t_mlx *mlx, int x, int y)
 		mlx->steps++;
 		return (1);
 	}
+	return (0);
 }
 
-int	ft_event(t_mlx *mlx, int px, int py)
+void	ft_event(t_mlx *mlx, int px, int py)
 {
 	int	current;
 
@@ -87,4 +88,5 @@ int	ft_input(int keycode, t_mlx *mlx)
 		xpo += 1;
 	ft_mov(mlx, xpo, ypo, keycode);
 	ft_event(mlx, xpo, ypo);
+	return (0);
 }

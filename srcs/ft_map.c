@@ -6,7 +6,7 @@
 /*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:51 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/22 09:29:12 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 09:35:39 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,19 @@ int	ft_key_count(char **map)
 		j++;
 	}
 	return (count);
+}
+
+void	ft_free_map(char **map)
+{
+	int	i;
+
+	if (!map)
+		return;
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 }
