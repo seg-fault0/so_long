@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_input.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
+/*   By: wimam <walidimam@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:10 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/22 09:39:28 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 16:43:19 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,11 @@ static int	ft_can_mov(t_mlx *mlx, int x, int y)
 	if (obg == '1' || (obg == 'E' && mlx->collected == 0))
 		return (0);
 	else
-	{
 		mlx->steps++;
-		return (1);
-	}
-	return (0);
+	return (1);
 }
 
-void	ft_event(t_mlx *mlx, int px, int py)
+static	void	ft_event(t_mlx *mlx, int px, int py)
 {
 	int	current;
 
@@ -56,12 +53,12 @@ void	ft_event(t_mlx *mlx, int px, int py)
 		mlx->collected = 1;
 	if ((current == 'E' && mlx->collected == 1))
 	{
-		write(1, "YOU WIN!!", 9);
+		write(1, "YOU WON!!\n", 10);
 		ft_exit(mlx);
 	}
 	if (current == 'B')
 	{
-		write(1, "YOU LOST!!", 10);
+		write(1, "YOU LOST!!\n", 11);
 		ft_exit(mlx);
 	}
 }

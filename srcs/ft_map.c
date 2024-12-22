@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
+/*   By: wimam <walidimam@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:51 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/22 11:30:33 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 16:44:52 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	**ft_ckeck_map(char **map)
 	exit_x = ft_get_coordinates(map, 'E', 'x');
 	if (key <= 0 || player_x == max_x || exit_x == max_x)
 	{
-		write(1, "ERROR : wrong map", 17);
+		write(1, "ERROR : wrong map\n", 18);
 		return (ft_free_map(map), NULL);
 	}
 	return (map);
