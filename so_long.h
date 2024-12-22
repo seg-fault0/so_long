@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:59 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/22 10:38:32 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 10:49:36 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ char	*ft_itoa(int n);
 int		ft_key_count(char **map);
 void	ft_win(t_mlx *mlx);
 void	ft_free_map(char **map);
+int		ft_close_window(t_mlx *mlx);
 
 #endif
