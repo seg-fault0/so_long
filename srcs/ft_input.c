@@ -6,7 +6,7 @@
 /*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:10 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/21 16:29:42 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 09:27:09 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,11 @@ int	ft_event(t_mlx *mlx, int px, int py)
 
 	current = mlx->map[py][px];
 	if (current == 'C')
+	{
 		mlx->map[py][px] = '0';
-	if (ft_key_check(mlx->map))
+		mlx->keys--;
+	}
+	if (mlx->keys == 0)
 		mlx->collected = 1;
 	if ((current == 'E' && mlx->collected == 1))
 	{
@@ -69,8 +72,8 @@ int	ft_input(int keycode, t_mlx *mlx)
 
 	if (xpo == 0 && ypo == 0)
 	{
-		xpo = mlx->cord.x_spwn;
-		ypo = mlx->cord.y_spwn;
+		xpo = mlx->px;
+		ypo = mlx->py;
 	}
 	if (keycode == ESC_KEY)
 		ft_exit(mlx);

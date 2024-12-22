@@ -6,7 +6,7 @@
 /*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:59 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/21 18:08:49 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 09:28:18 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,15 @@
 # include "get_next_line.h"
 
 //Structures
-typedef struct s_cord
-{
-	int	x_spwn;
-	int	y_spwn;
-}t_cord;
-
 typedef struct s_mlx
 {
+	int		fd;
 	void	*mlx;
 	void	*win;
 	char	**map;
-	t_cord	cord;
+	int		px;
+	int		py;
+	int		keys;
 	int		collected;
 	int		steps;
 }t_mlx;
@@ -72,7 +69,7 @@ void	ft_exit(t_mlx *mlx);
 int		ft_get_coordinates(char **map, int obg, int axis);
 int		ft_get_win_size(char **map, int axis);
 char	*ft_itoa(int n);
-int		ft_key_check(char **map);
+int		ft_key_count(char **map);
 void	ft_win(t_mlx *mlx);
 
 #endif

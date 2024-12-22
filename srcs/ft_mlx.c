@@ -6,7 +6,7 @@
 /*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:26:02 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/21 18:17:11 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 09:26:07 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ void	*ft_create_win(t_mlx *mlx)
 
 t_mlx	*ft_mlx_init(char *str)
 {
-	int		fd;
 	t_mlx	*mlx;
 
-	fd = open(str, O_RDWR);
 	mlx = malloc(sizeof(t_mlx));
+	mlx->fd = open(str, O_RDWR);
 	mlx->mlx = mlx_init();
-	mlx->map = ft_get_map(fd);
+	mlx->map = ft_get_map(mlx->fd);
 	mlx->win = ft_create_win(mlx);
-	mlx->cord.x_spwn = ft_get_coordinates(mlx->map, 'P', 'x');
-	mlx->cord.y_spwn = ft_get_coordinates(mlx->map, 'P', 'y');
+	mlx->px = ft_get_coordinates(mlx->map, 'P', 'x');
+	mlx->py = ft_get_coordinates(mlx->map, 'P', 'y');
+	mlx->keys = ft_key_count(mlx->map);
 	mlx->collected = 0;
 	ft_map_gen(mlx);
-	ft_mlx_print_img(mlx, DOWN_IMG, mlx->cord.x_spwn, mlx->cord.y_spwn);
+	ft_mlx_print_img(mlx, DOWN_IMG, mlx->px, mlx->py);
 	return (mlx);
 }
 

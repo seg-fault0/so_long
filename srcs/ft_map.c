@@ -6,7 +6,7 @@
 /*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:51 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/21 16:29:47 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/22 09:29:12 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,23 +90,25 @@ void	ft_map_gen(t_mlx *mlx)
 	}
 }
 
-int	ft_key_check(char **map)
+int	ft_key_count(char **map)
 {
 	int	i;
 	int	j;
+	int	count;
 
 	i = 0;
 	j = 0;
+	count = 0;
 	while (map[j] != NULL)
 	{
 		i = 0;
 		while (map[j][i] != '\n')
 		{
 			if (map[j][i] == 'C')
-				return (0);
+				count++;
 			i++;
 		}
 		j++;
 	}
-	return (1);
+	return (count);
 }
