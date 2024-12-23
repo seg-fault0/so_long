@@ -1,18 +1,13 @@
-SRC = srcs/*.c
+SRC = srcs/.c
 L = -L ./ -lmlx_Linux -lX11 -lXext
 I = -I ./
 NAME = so_long
 FLAGS = -Wall -Wextra -Werror
 
-all: mlx
-	cc $(FLAGS) $(SRC) $(I) $(L) -o $(NAME)
+all: $(NAME)
 
-mlx:
-	tar -xvzf minilibx-linux.tgz
-	cd minilibx-linux && make
-	cd ..
-	mv minilibx-linux/libmlx_Linux.a .
-	mv minilibx-linux/mlx.h .
+$(NAME): mlx
+	cc $(FLAGS) $(SRC) $(I) $(L) -o $(NAME)
 
 clean:
 	rm -fr minilibx-linux
@@ -22,5 +17,12 @@ fclean: clean
 	rm -f mlx.h
 
 re : fclean all
+
+mlx:
+	tar -xvzf minilibx-linux.tgz
+	cd minilibx-linux && make
+	cd ..
+	mv minilibx-linux/libmlx_Linux.a .
+	mv minilibx-linux/mlx.h .
 
 .PHONEY: clean mlx
