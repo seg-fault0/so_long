@@ -1,4 +1,4 @@
-SRC = srcs/.c
+SRC = srcs/*.c
 L = -L ./ -lmlx_Linux -lX11 -lXext
 I = -I ./
 NAME = so_long
