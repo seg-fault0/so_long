@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:05 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/25 16:41:52 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/25 18:21:25 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char *argv[])
 {
 	t_mlx	*mlx;
 
-	if (argc != 2)
+	if (argc != 2 || ft_check_extension(argv[1]))
 		return (-1);
 	mlx = ft_mlx_init(argv[1]);
 	if (!mlx)

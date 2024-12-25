@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:59 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/25 16:34:06 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/25 18:21:09 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,8 @@ void	ft_win(t_mlx *mlx);
 void	ft_free_map(char **map);
 t_img	*ft_get_images(t_mlx *mlx);
 char	**ft_ckeck_map(char **map);
+int		ft_strlen(char *str);
+char	*ft_strdup(char *s);
+int		ft_check_extension(char *path);
 
 #endif

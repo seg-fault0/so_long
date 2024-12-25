@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:33:26 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/25 16:33:55 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/25 18:25:45 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,31 @@ char	**ft_ckeck_map(char **map)
 		return (ft_free_map(map), NULL);
 	}
 	return (map);
+}
+
+int	ft_check_extension(char *path)
+{
+	int		len;
+	int		max;
+	int		i;
+	char	*extension;
+
+	if (!path)
+		return (1);
+	extension = ".ber";
+	len = ft_strlen(path);
+	if (len < 4)
+		return (1);
+	max = len - 4;
+	i = 0;
+	while (max + i < len)
+	{
+		if (path[max + i] != extension[i])
+		{
+			write(1, "Error\n", 7);
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }
