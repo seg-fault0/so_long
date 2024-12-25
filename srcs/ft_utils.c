@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wimam <walidimamgmail.com>                 +#+  +:+       +#+        */
+/*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:33 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/21 18:17:35 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/25 16:44:18 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,27 @@ char	*ft_itoa(int n)
 		nb /= 10;
 	}
 	return (ret);
+}
+
+int	ft_key_count(char **map)
+{
+	int	i;
+	int	j;
+	int	count;
+
+	i = 0;
+	j = 0;
+	count = 0;
+	while (map[j] != NULL)
+	{
+		i = 0;
+		while (map[j][i] != '\n')
+		{
+			if (map[j][i] == 'C')
+				count++;
+			i++;
+		}
+		j++;
+	}
+	return (count);
 }
