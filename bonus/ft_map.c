@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:51 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/25 16:15:42 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/23 10:06:38 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,13 +114,15 @@ void	ft_map_gen(t_mlx *mlx)
 		while (mlx->map[j][i] != '\n')
 		{
 			if (mlx->map[j][i] == '1')
-				ft_mlx_print_img(mlx, mlx->img->wall, i, j);
+				ft_mlx_print_img(mlx, WALL_PATH, i, j);
 			else if (mlx->map[j][i] == 'C' && mlx->collected == 0)
-				ft_mlx_print_img(mlx, mlx->img->key, i, j);
+				ft_mlx_print_img(mlx, KEY_PATH, i, j);
 			else if (mlx->map[j][i] == 'E')
-				ft_mlx_print_img(mlx, mlx->img->door, i, j);
+				ft_mlx_print_img(mlx, DOOR_PATH, i, j);
+			else if (mlx->map[j][i] == 'B')
+				ft_mlx_print_img(mlx, FOX_PATH, i, j);
 			else
-				ft_mlx_print_img(mlx, mlx->img->floor, i, j);
+				ft_mlx_print_img(mlx, FLOOR_PATH, i, j);
 			i++;
 		}
 		j++;
