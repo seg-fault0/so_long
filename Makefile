@@ -1,11 +1,12 @@
-SRC = srcs/ft_exit.c               \
-      srcs/ft_input.c              \
-      srcs/ft_itoa.c               \
-      srcs/ft_map.c                \
-      srcs/ft_mlx.c                \
-      srcs/get_next_line.c         \
-      srcs/get_next_line_utils.c   \
-      srcs/main.c                  \
+SRC =	srcs/ft_check.c				\
+		srcs/ft_exit.c				\
+		srcs/ft_input.c				\
+		srcs/ft_map.c				\
+		srcs/ft_mlx.c				\
+		srcs/ft_utils.c				\
+		srcs/get_next_line.c		\
+		srcs/get_next_line_utils.c	\
+		srcs/main.c					\
 
 OBG = $(SRC:.c=.o)
 
