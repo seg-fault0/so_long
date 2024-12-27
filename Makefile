@@ -8,23 +8,25 @@ SRC =	srcs/ft_check.c				\
 		srcs/get_next_line_utils.c	\
 		srcs/main.c					\
 
-BSRC = 	bonus/ft_check.c			\
-		bonus/ft_exit.c				\
-		bonus/ft_input.c			\
-		bonus/ft_map.c				\
-		bonus/ft_mlx.c				\
-		bonus/ft_utils.c			\
-		bonus/get_next_line.c		\
-		bonus/get_next_line_utils.c	\
-		bonus/main.c				\
+BSRC = 	bonus/ft_check_bonus.c				\
+		bonus/ft_exit_bonus.c				\
+		bonus/ft_input_bonus.c				\
+		bonus/ft_map_bonus.c				\
+		bonus/ft_mlx_bonus.c				\
+		bonus/ft_utils_bonus.c				\
+		bonus/get_next_line_bonus.c			\
+		bonus/get_next_line_utils_bonus.c	\
+		bonus/main_bonus.c					\
 
 OBG = $(SRC:.c=.o)
 BOBG = $(BSRC:.c=.o)
 
 NAME = so_long
 BNAME = so_long_bonus
-L = -L ./ -lmlx_Linux -lX11 -lXext
+
 I = -I ./includes/
+
+L = -L ./ -lmlx_Linux -lX11 -lXext
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
@@ -42,11 +44,11 @@ $(BNAME): $(BOBG)
 clean:
 	rm -f $(OBG)
 
-fclean: clean
-	rm -f $(NAME)
-
 bclean:
 	rm -f $(BOBG) $(NAME)
+
+fclean: bclean clean
+	rm -f $(NAME) $(BNAME)
 
 re: clean all
 
@@ -60,7 +62,7 @@ mlx:
 	cd minilibx-linux && make
 	cd ..
 	mv minilibx-linux/libmlx_Linux.a .
-	mv minilibx-linux/mlx.h ./includes/.
+	cp minilibx-linux/mlx.h ./includes/.
 	rm -fr minilibx-linux
 lldb:
 	clang -g -I ./includes/ srcs/*.c -L ./ -lmlx_Linux -lX11 -lXext -o debugProg
