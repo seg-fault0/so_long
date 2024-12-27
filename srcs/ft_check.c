@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:33:26 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/27 16:00:08 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/27 16:19:49 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,32 @@ int ft_check_map_border(char **map, int max_x, int max_y)
 	return (0);
 }
 
+int ft_check_double(char **map)
+{
+	int	i;
+	int	j;
+	int e;
+	int p;
+
+	e = 0;
+	p = 0;
+	j = 0;
+	while(map[++j] != NULL)
+	{
+		i = -1;
+		while(map[j][++i] != '\n')
+		{
+			if (map[j][i] == 'P')
+				p++;
+			else if (map[j][i] == 'E')
+				e++;
+		}
+	}
+	if (p != 1 || e != 1)
+		return (1);
+	return (0);
+}
+
 int ft_check_map_components(char **map)
 {
 	int	i;
@@ -55,7 +81,7 @@ int ft_check_map_components(char **map)
 				return(1);
 		}
 	}
-	return (0);
+	return (ft_check_double(map));
 }
 
 char	**ft_ckeck_map(char **map)
