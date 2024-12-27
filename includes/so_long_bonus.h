@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:59 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/27 17:21:56 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/27 18:12:35 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@
 # define DOWN_IMG "./textures/player/down.xpm"
 # define RIGHT_IMG "./textures/player/right.xpm"
 # define LEFT_IMG "./textures/player/left.xpm"
+
+//BonusPATH
+# define F1 "./textures/fox/1.xpm" 
+# define F2 "./textures/fox/2.xpm" 
+# define F3 "./textures/fox/3.xpm" 
+# define F4 "./textures/fox/4.xpm" 
+# define F5 "./textures/fox/5.xpm" 
 
 //KEY_CODES
 # define ESC_KEY 65307
@@ -57,6 +64,15 @@ typedef struct s_img
 	void	*key;
 }t_img;
 
+typedef struct s_anim
+{
+	void	*f1;
+	void	*f2;
+	void	*f3;
+	void	*f4;
+	void	*f5;
+}t_anim;
+
 typedef struct s_mlx
 {
 	int		fd;
@@ -64,6 +80,7 @@ typedef struct s_mlx
 	void	*win;
 	char	**map;
 	t_img	*img;
+	t_anim	*anim;
 	int		px;
 	int		py;
 	int		keys;
@@ -89,5 +106,9 @@ char	**ft_ckeck_map(char **map);
 int		ft_strlen(char *str);
 char	*ft_strdup(char *s);
 int		ft_check_extension(char *path);
+
+//bonus
+int		ft_animation(void);
+
 
 #endif

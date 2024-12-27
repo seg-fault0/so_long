@@ -8,7 +8,8 @@ SRC =	srcs/ft_check.c				\
 		srcs/get_next_line_utils.c	\
 		srcs/main.c					\
 
-BSRC = 	bonus/ft_check_bonus.c				\
+BSRC = 	bonus/ft_animation.c				\
+		bonus/ft_check_bonus.c				\
 		bonus/ft_exit_bonus.c				\
 		bonus/ft_input_bonus.c				\
 		bonus/ft_map_bonus.c				\
@@ -27,7 +28,7 @@ BNAME = so_long_bonus
 I = -I ./includes/
 
 L = -L ./ -lmlx_Linux -lX11 -lXext
-FLAGS = -Wall -Wextra -Werror
+#FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 bonus: $(BNAME)
@@ -53,8 +54,6 @@ fclean: bclean clean
 re: clean all
 
 .PHONEY: clean mlx
-
-
 
 mlx:
 	rm -fr minilibx-linux
