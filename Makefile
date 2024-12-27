@@ -26,7 +26,7 @@ $(NAME): $(OBG)
 clean:
 	rm -f $(OBG)
 
-re: fclean all
+re: clean all
 
 mlx:
 	rm -fr minilibx-linux
