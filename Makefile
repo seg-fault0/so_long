@@ -9,10 +9,10 @@ SRC =	srcs/ft_check.c				\
 		srcs/main.c					\
 
 OBG = $(SRC:.c=.o)
+NAME = so_long
 
 L = -L ./ -lmlx_Linux -lX11 -lXext
 I = -I ./includes/
-NAME = so_long
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
@@ -26,7 +26,12 @@ $(NAME): $(OBG)
 clean:
 	rm -f $(OBG)
 
+fclean: clean
+	rm -f $(NAME)
+
 re: clean all
+
+.PHONEY: clean mlx
 
 mlx:
 	rm -fr minilibx-linux
@@ -36,8 +41,5 @@ mlx:
 	mv minilibx-linux/libmlx_Linux.a .
 	mv minilibx-linux/mlx.h ./includes/.
 	rm -fr minilibx-linux
-
-.PHONEY: clean mlx
-
 lldb:
 	clang -g -I ./includes/ srcs/*.c -L ./ -lmlx_Linux -lX11 -lXext -o debugProg
