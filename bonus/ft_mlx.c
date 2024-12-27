@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wimam <walidimam@gmail.com>                +#+  +:+       +#+        */
+/*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:26:02 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/22 16:32:41 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/25 16:15:07 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,25 +43,18 @@ t_mlx	*ft_mlx_init(char *str)
 	mlx->win = ft_create_win(mlx);
 	if (!mlx->win)
 		return (ft_free_map(mlx->map), close(mlx->fd), free(mlx), NULL);
+	mlx->img = ft_get_images(mlx);
 	mlx->px = ft_get_coordinates(mlx->map, 'P', 'x');
 	mlx->py = ft_get_coordinates(mlx->map, 'P', 'y');
 	mlx->keys = ft_key_count(mlx->map);
 	mlx->collected = 0;
-	ft_map_gen(mlx);
-	ft_mlx_print_img(mlx, DOWN_IMG, mlx->px, mlx->py);
 	return (mlx);
 }
 
-void	ft_mlx_print_img(t_mlx *mlx, char *path, int x, int y)
+void	ft_mlx_print_img(t_mlx *mlx, void *img, int x, int y)
 {
-	int		width;
-	int		height;
-	void	*img;
 	char	*steps;
 
-	img = mlx_xpm_file_to_image(mlx->mlx, path, &width, &height);
-	if (img == NULL)
-		return ;
 	x *= IMG_SIZE;
 	y *= IMG_SIZE;
 	mlx_put_image_to_window(mlx->mlx, mlx->win, img, x, y);
@@ -69,4 +62,21 @@ void	ft_mlx_print_img(t_mlx *mlx, char *path, int x, int y)
 	steps = ft_itoa(mlx->steps);
 	mlx_string_put(mlx->mlx, mlx->win, 54, 12, 0xFF0000, steps);
 	free(steps);
+}
+
+t_img	*ft_get_images(t_mlx *mlx)
+{
+	t_img	*img;
+	int		size;
+
+	img = malloc(sizeof(t_img));
+	img->door = mlx_xpm_file_to_image(mlx->mlx, DOOR_PATH, &size, &size);
+	img->floor = mlx_xpm_file_to_image(mlx->mlx, FLOOR_PATH, &size, &size);
+	img->key = mlx_xpm_file_to_image(mlx->mlx, KEY_PATH, &size, &size);
+	img->wall = mlx_xpm_file_to_image(mlx->mlx, WALL_PATH, &size, &size);
+	img->player_down = mlx_xpm_file_to_image(mlx->mlx, DOWN_IMG, &size, &size);
+	img->player_up = mlx_xpm_file_to_image(mlx->mlx, UP_IMG, &size, &size);
+	img->player_right = mlx_xpm_file_to_image(mlx->mlx, RIGHT_IMG, &size, &size);
+	img->player_left = mlx_xpm_file_to_image(mlx->mlx, LEFT_IMG, &size, &size);
+	return (img);
 }

@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:10 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/25 16:19:01 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/27 17:15:04 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,18 @@ static void	ft_mov(t_mlx *mlx, int x, int y, int direction)
 
 static int	ft_can_mov(t_mlx *mlx, int x, int y)
 {
-	int	obg;
+	int		obg;
+	char	*steps;
 
 	obg = mlx->map[y][x];
 	if (obg == '1' || (obg == 'E' && mlx->collected == 0))
 		return (0);
 	else
-		mlx->steps++;
+	{
+		steps = ft_itoa(mlx->steps++);
+		write(1, steps, ft_strlen(steps));
+		write(1, "\n", 1);
+	}
 	return (1);
 }
 

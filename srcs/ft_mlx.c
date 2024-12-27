@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:26:02 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/25 16:15:07 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/27 17:12:14 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,9 @@ t_mlx	*ft_mlx_init(char *str)
 
 void	ft_mlx_print_img(t_mlx *mlx, void *img, int x, int y)
 {
-	char	*steps;
-
 	x *= IMG_SIZE;
 	y *= IMG_SIZE;
 	mlx_put_image_to_window(mlx->mlx, mlx->win, img, x, y);
-	mlx_string_put(mlx->mlx, mlx->win, 5, 12, 0xFF0000, "STEPS : ");
-	steps = ft_itoa(mlx->steps);
-	mlx_string_put(mlx->mlx, mlx->win, 54, 12, 0xFF0000, steps);
-	free(steps);
 }
 
 t_img	*ft_get_images(t_mlx *mlx)

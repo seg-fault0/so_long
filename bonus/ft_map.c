@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:51 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/23 10:06:38 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/25 16:33:53 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,28 +54,6 @@ void	ft_free_map(char **map)
 	free(map);
 }
 
-char	**ft_ckeck_map(char **map)
-{
-	int	key;
-	int	max_x;
-	int	max_y;
-	int	player_x;
-	int	exit_x;
-
-	key = ft_key_count(map);
-	max_x = ft_get_coordinates(map, 'S', 'x');
-	max_y = ft_get_coordinates(map, 'S', 'y');
-	player_x = ft_get_coordinates(map, 'P', 'x');
-	exit_x = ft_get_coordinates(map, 'E', 'x');
-	if (key <= 0 || player_x == max_x || exit_x == max_x
-		|| max_x > 60 || max_y > 32)
-	{
-		write(1, "ERROR : wrong map\n", 18);
-		return (ft_free_map(map), NULL);
-	}
-	return (map);
-}
-
 char	**ft_get_map(int fd)
 {
 	char	*tmp_map[MAX_COL];
@@ -114,15 +92,13 @@ void	ft_map_gen(t_mlx *mlx)
 		while (mlx->map[j][i] != '\n')
 		{
 			if (mlx->map[j][i] == '1')
-				ft_mlx_print_img(mlx, WALL_PATH, i, j);
+				ft_mlx_print_img(mlx, mlx->img->wall, i, j);
 			else if (mlx->map[j][i] == 'C' && mlx->collected == 0)
-				ft_mlx_print_img(mlx, KEY_PATH, i, j);
+				ft_mlx_print_img(mlx, mlx->img->key, i, j);
 			else if (mlx->map[j][i] == 'E')
-				ft_mlx_print_img(mlx, DOOR_PATH, i, j);
-			else if (mlx->map[j][i] == 'B')
-				ft_mlx_print_img(mlx, FOX_PATH, i, j);
+				ft_mlx_print_img(mlx, mlx->img->door, i, j);
 			else
-				ft_mlx_print_img(mlx, FLOOR_PATH, i, j);
+				ft_mlx_print_img(mlx, mlx->img->floor, i, j);
 			i++;
 		}
 		j++;

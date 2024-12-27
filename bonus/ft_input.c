@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_input.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wimam <walidimam@gmail.com>                +#+  +:+       +#+        */
+/*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:10 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/22 16:43:19 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/25 16:19:01 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ static void	ft_mov(t_mlx *mlx, int x, int y, int direction)
 {
 	ft_map_gen(mlx);
 	if (direction == W_KEY)
-		ft_mlx_print_img(mlx, UP_IMG, x, y);
+		ft_mlx_print_img(mlx, mlx->img->player_up, x, y);
 	else if (direction == S_KEY)
-		ft_mlx_print_img(mlx, DOWN_IMG, x, y);
+		ft_mlx_print_img(mlx, mlx->img->player_down, x, y);
 	else if (direction == A_KEY)
-		ft_mlx_print_img(mlx, LEFT_IMG, x, y);
+		ft_mlx_print_img(mlx, mlx->img->player_left, x, y);
 	else if (direction == D_KEY)
-		ft_mlx_print_img(mlx, RIGHT_IMG, x, y);
+		ft_mlx_print_img(mlx, mlx->img->player_right, x, y);
 	else
-		ft_mlx_print_img(mlx, DOWN_IMG, x, y);
+		ft_mlx_print_img(mlx, mlx->img->player_down, x, y);
 }
 
 static int	ft_can_mov(t_mlx *mlx, int x, int y)
