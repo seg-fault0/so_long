@@ -6,25 +6,24 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:10 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/27 17:22:18 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/29 16:12:40 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-static void	ft_mov(t_mlx *mlx, int x, int y, int direction)
+void	ft_mov(t_mlx *mlx, int direction)
 {
 	ft_map_gen(mlx);
 	if (direction == W_KEY)
-		ft_mlx_print_img(mlx, mlx->img->player_up, x, y);
+		mlx->player = mlx->img->player_up;
 	else if (direction == S_KEY)
-		ft_mlx_print_img(mlx, mlx->img->player_down, x, y);
+		mlx->player = mlx->img->player_down;
 	else if (direction == A_KEY)
-		ft_mlx_print_img(mlx, mlx->img->player_left, x, y);
+		mlx->player = mlx->img->player_left;
 	else if (direction == D_KEY)
-		ft_mlx_print_img(mlx, mlx->img->player_right, x, y);
-	else
-		ft_mlx_print_img(mlx, mlx->img->player_down, x, y);
+		mlx->player = mlx->img->player_right;
+	ft_mlx_print_img(mlx, mlx->player, mlx->px, mlx->py);
 }
 
 static int	ft_can_mov(t_mlx *mlx, int x, int y)
@@ -65,25 +64,17 @@ static	void	ft_event(t_mlx *mlx, int px, int py)
 
 int	ft_input(int keycode, t_mlx *mlx)
 {
-	static int	xpo;
-	static int	ypo;
-
-	if (xpo == 0 && ypo == 0)
-	{
-		xpo = mlx->px;
-		ypo = mlx->py;
-	}
 	if (keycode == ESC_KEY)
 		ft_exit(mlx);
-	else if (keycode == W_KEY && ft_can_mov(mlx, xpo, ypo - 1))
-		ypo -= 1;
-	else if (keycode == S_KEY && ft_can_mov(mlx, xpo, ypo + 1))
-		ypo += 1;
-	else if (keycode == A_KEY && ft_can_mov(mlx, xpo - 1, ypo))
-		xpo -= 1;
-	else if (keycode == D_KEY && ft_can_mov(mlx, xpo + 1, ypo))
-		xpo += 1;
-	ft_mov(mlx, xpo, ypo, keycode);
-	ft_event(mlx, xpo, ypo);
+	else if (keycode == W_KEY && ft_can_mov(mlx, mlx->px, mlx->py - 1))
+		mlx->py -= 1;
+	else if (keycode == S_KEY && ft_can_mov(mlx, mlx->px, mlx->py + 1))
+		mlx->py += 1;
+	else if (keycode == A_KEY && ft_can_mov(mlx, mlx->px - 1, mlx->py))
+		mlx->px -= 1;
+	else if (keycode == D_KEY && ft_can_mov(mlx, mlx->px + 1, mlx->py))
+		mlx->px += 1;
+	ft_mov(mlx, keycode);
+	ft_event(mlx, mlx->px, mlx->py);
 	return (0);
 }

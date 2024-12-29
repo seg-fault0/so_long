@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:42:24 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/29 15:23:40 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/29 16:16:20 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int ft_animation(t_mlx *mlx)
 	int speed = 5000;
 	if(i % speed == 0)
 	{
+		ft_mov(mlx, 0);
 		ft_get_frames(mlx);
-		ft_map_gen(mlx);
 	}
 	if(i == speed * 100)
 		i = 1;

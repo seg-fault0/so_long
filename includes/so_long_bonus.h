@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:59 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/29 15:14:49 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/29 16:14:17 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,6 @@ typedef struct s_img
 	void	*fox;
 }t_img;
 
-typedef struct s_anim
-{
-	void			*frame;
-	struct	s_anim	*next;
-}t_anim;
-
 typedef struct s_mlx
 {
 	int		fd;
@@ -78,12 +72,12 @@ typedef struct s_mlx
 	void	*win;
 	char	**map;
 	t_img	*img;
-	t_anim	*anim;
 	int		px;
 	int		py;
 	int		keys;
 	int		collected;
 	int		steps;
+	void	*player;
 }t_mlx;
 
 //Prototypes
@@ -106,6 +100,8 @@ char	*ft_strdup(char *s);
 int		ft_check_extension(char *path);
 
 //bonus
-int ft_animation(t_mlx *mlx);
+int		ft_animation(t_mlx *mlx);
+void	ft_mov(t_mlx *mlx, int direction);
+void	ft_get_frames(t_mlx *mlx);
 
 #endif

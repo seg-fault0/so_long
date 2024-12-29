@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:26:02 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/29 11:22:27 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/29 16:14:32 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ t_mlx	*ft_mlx_init(char *str)
 	mlx->py = ft_get_coordinates(mlx->map, 'P', 'y');
 	mlx->keys = ft_key_count(mlx->map);
 	mlx->collected = 0;
+	int size;
+	mlx->player = mlx_xpm_file_to_image(mlx->mlx, DOWN_IMG, &size, &size);
 	return (mlx);
 }
 
