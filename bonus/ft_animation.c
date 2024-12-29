@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:42:24 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/29 16:16:20 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/29 16:53:29 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_get_frames(t_mlx *mlx)
 {
+	static int	cur;
 	int			size;
-	static	int cur;
 
 	cur++;
-	if(cur == 5)
+	if (cur == 5)
 		cur = 0;
 	if (cur == 0)
 		mlx->img->fox = mlx_xpm_file_to_image(mlx->mlx, F1, &size, &size);
@@ -33,17 +33,19 @@ void	ft_get_frames(t_mlx *mlx)
 	return ;
 }
 
-int ft_animation(t_mlx *mlx)
+int	ft_animation(t_mlx *mlx)
 {
-	static int i = 1;
-	int speed = 5000;
-	if(i % speed == 0)
+	static int	i = 1;
+	int			speed;
+
+	speed = 5000;
+	if (i % speed == 0)
 	{
 		ft_mov(mlx, 0);
 		ft_get_frames(mlx);
 	}
-	if(i == speed * 100)
+	if (i == speed * 100)
 		i = 1;
 	i++;
-	return(0);
+	return (0);
 }

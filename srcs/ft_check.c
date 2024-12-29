@@ -6,53 +6,53 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:33:26 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/27 16:19:49 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/29 16:49:16 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int ft_check_map_border(char **map, int max_x, int max_y)
+int	ft_check_map_border(char **map, int max_x, int max_y)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while(map[0][i] != '\n' && map[max_y][i] != '\n')
+	while (map[0][i] != '\n' && map[max_y][i] != '\n')
 	{
-		if(map[0][i] != '1' || map[max_y][i] != '1')
-			return(1);
+		if (map[0][i] != '1' || map[max_y][i] != '1')
+			return (1);
 		i++;
 	}
 	i = -1;
-	while(++i < max_y)
-		if(map[i][0] != '1')
+	while (++i < max_y)
+		if (map[i][0] != '1')
 			return (1);
 	j = -1;
-	while(++j <= max_y)
+	while (++j <= max_y)
 	{
 		i = -1;
-		while(map[j][++i] != '\n')
-			if(i != max_x - 1 && map[j][i+1] == '\n')
+		while (map[j][++i] != '\n')
+			if (i != max_x - 1 && map[j][i+1] == '\n')
 				return (1);
 	}
 	return (0);
 }
 
-int ft_check_double(char **map)
+int	ft_check_double(char **map)
 {
 	int	i;
 	int	j;
-	int e;
-	int p;
+	int	e;
+	int	p;
 
 	e = 0;
 	p = 0;
 	j = 0;
-	while(map[++j] != NULL)
+	while (map[++j] != NULL)
 	{
 		i = -1;
-		while(map[j][++i] != '\n')
+		while (map[j][++i] != '\n')
 		{
 			if (map[j][i] == 'P')
 				p++;
@@ -65,20 +65,20 @@ int ft_check_double(char **map)
 	return (0);
 }
 
-int ft_check_map_components(char **map)
+int	ft_check_map_components(char **map)
 {
 	int	i;
 	int	j;
 
 	j = 0;
-	while(map[++j] != NULL)
+	while (map[++j] != NULL)
 	{
 		i = -1;
-		while(map[j][++i] != '\n')
+		while (map[j][++i] != '\n')
 		{
-			if(map[j][i] != 'C' && map[j][i] != '1' && map[j][i] != '0'
+			if (map[j][i] != 'C' && map[j][i] != '1' && map[j][i] != '0'
 				&& map[j][i] != 'E' && map[j][i] != 'P')
-				return(1);
+				return (1);
 		}
 	}
 	return (ft_check_double(map));
