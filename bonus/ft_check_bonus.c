@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:33:26 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/27 17:22:10 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/29 11:23:05 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int ft_check_map_components(char **map)
 		while(map[j][++i] != '\n')
 		{
 			if(map[j][i] != 'C' && map[j][i] != '1' && map[j][i] != '0'
-				&& map[j][i] != 'E' && map[j][i] != 'P')
+				&& map[j][i] != 'E' && map[j][i] != 'P' && map[j][i] != 'B')
 				return(1);
 		}
 	}

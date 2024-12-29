@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:59 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/27 18:12:35 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/29 11:20:57 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,13 @@ typedef struct s_img
 	void	*wall;
 	void	*door;
 	void	*key;
+	void	*fox;
 }t_img;
 
 typedef struct s_anim
 {
-	void	*f1;
-	void	*f2;
-	void	*f3;
-	void	*f4;
-	void	*f5;
+	void			*frame;
+	struct	s_anim	*next;
 }t_anim;
 
 typedef struct s_mlx

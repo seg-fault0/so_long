@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:51 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/27 17:22:20 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/29 11:20:36 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ void	ft_map_gen(t_mlx *mlx)
 				ft_mlx_print_img(mlx, mlx->img->key, i, j);
 			else if (mlx->map[j][i] == 'E')
 				ft_mlx_print_img(mlx, mlx->img->door, i, j);
+			else if (mlx->map[j][i] == 'B')
+				ft_mlx_print_img(mlx, mlx->img->fox, i, j);
 			else
 				ft_mlx_print_img(mlx, mlx->img->floor, i, j);
 			i++;
