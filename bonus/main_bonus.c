@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:05 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/27 19:25:30 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/29 15:15:24 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char *argv[])
 		return (-1);
 	ft_start(mlx);
 	mlx_key_hook(mlx->win, ft_input, mlx);
-	mlx_loop_hook(mlx->mlx, ft_animation, NULL);
+	mlx_loop_hook(mlx->mlx, ft_animation, mlx);
 	mlx_hook(mlx->win, 17, 0, ft_exit, mlx);
 	mlx_loop(mlx->mlx);
 	return (0);

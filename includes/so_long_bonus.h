@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:59 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/29 11:20:57 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/29 15:14:49 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ char	*ft_strdup(char *s);
 int		ft_check_extension(char *path);
 
 //bonus
-int		ft_animation(void);
-
+int ft_animation(t_mlx *mlx);
 
 #endif
