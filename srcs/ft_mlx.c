@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:26:02 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/29 18:47:12 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/29 19:44:35 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,13 @@ t_img	*ft_get_images(t_mlx *mlx)
 	int		size;
 
 	img = malloc(sizeof(t_img));
-	img->door = mlx_xpm_file_to_image(mlx->mlx, DOOR_PATH, size, size);
-	img->floor = mlx_xpm_file_to_image(mlx->mlx, FLOOR_PATH, size, size);
-	img->key = mlx_xpm_file_to_image(mlx->mlx, KEY_PATH, size, size);
-	img->wall = mlx_xpm_file_to_image(mlx->mlx, WALL_PATH, size, size);
-	img->player_down = mlx_xpm_file_to_image(mlx->mlx, DOWN_IMG, size, size);
-	img->player_up = mlx_xpm_file_to_image(mlx->mlx, UP_IMG, size, size);
-	img->player_right = mlx_xpm_file_to_image(mlx->mlx, RIGHT_IMG, size, size);
-	img->player_left = mlx_xpm_file_to_image(mlx->mlx, LEFT_IMG, size, size);
+	img->door = mlx_xpm_file_to_image(mlx->mlx, DOOR_PATH, &size, &size);
+	img->floor = mlx_xpm_file_to_image(mlx->mlx, FLOOR_PATH, &size, &size);
+	img->key = mlx_xpm_file_to_image(mlx->mlx, KEY_PATH, &size, &size);
+	img->wall = mlx_xpm_file_to_image(mlx->mlx, WALL_PATH, &size, &size);
+	img->player_down = mlx_xpm_file_to_image(mlx->mlx, DOWN_IMG, &size, &size);
+	img->player_up = mlx_xpm_file_to_image(mlx->mlx, UP_IMG, &size, &size);
+	img->player_right = mlx_xpm_file_to_image(mlx->mlx, RIGHT_IMG, &size, &size);
+	img->player_left = mlx_xpm_file_to_image(mlx->mlx, LEFT_IMG, &size, &size);
 	return (img);
 }
