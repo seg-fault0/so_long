@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:59 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/29 16:53:06 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/29 18:39:11 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define DOOR_PATH "./textures/map/door.xpm"
 # define UP_IMG	"./textures/player/up.xpm"
 # define DOWN_IMG "./textures/player/down.xpm"
-# define RIGHT_IMG "./textures/player/right.xpm"
+# define RGHT_IMG "./textures/player/right.xpm"
 # define LEFT_IMG "./textures/player/left.xpm"
 
 //BonusPATH

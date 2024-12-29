@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:26:02 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/29 17:08:00 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/29 18:38:43 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ t_img	*ft_get_images(t_mlx *mlx)
 	img->wall = mlx_xpm_file_to_image(mlx->mlx, WALL_PATH, &size, &size);
 	img->player_down = mlx_xpm_file_to_image(mlx->mlx, DOWN_IMG, &size, &size);
 	img->player_up = mlx_xpm_file_to_image(mlx->mlx, UP_IMG, &size, &size);
-	img->player_right = mlx_xpm_file_to_image(mlx->mlx, RIGHT_IMG, &size, &size);
+	img->player_right = mlx_xpm_file_to_image(mlx->mlx, RGHT_IMG, &size, &size);
 	img->player_left = mlx_xpm_file_to_image(mlx->mlx, LEFT_IMG, &size, &size);
 	img->fox = mlx_xpm_file_to_image(mlx->mlx, F1, &size, &size);
 	return (img);

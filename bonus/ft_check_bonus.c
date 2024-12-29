@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:33:26 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/29 17:02:07 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/29 18:38:07 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_check_map_border(char **map, int max_x, int max_y)
 	{
 		i = -1;
 		while (map[j][++i] != '\n')
-			if ((i != max_x - 1 || map[j][i] != '1') && map[j][i+1] == '\n')
+			if ((i != max_x - 1 || map[j][i] != '1') && map[j][i + 1] == '\n')
 				return (1);
 	}
 	return (0);
