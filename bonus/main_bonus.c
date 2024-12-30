@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:05 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/29 18:45:43 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/30 08:41:27 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_start(t_mlx *mlx)
 {
 	int	size;
 
-	mlx->player = mlx_xpm_file_to_image(mlx->mlx, DOWN_IMG, &size, &size);
+	mlx->player = mlx_xpm_file_to_image(mlx->mlx, DOWN, &size, &size);
 	if (!mlx->player)
 		ft_exit(mlx);
 	ft_map_gen(mlx);

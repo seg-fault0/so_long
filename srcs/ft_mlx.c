@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:26:02 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/29 19:44:35 by wimam            ###   ########.fr       */
+/*   Updated: 2024/12/30 08:40:37 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ t_img	*ft_get_images(t_mlx *mlx)
 	img->floor = mlx_xpm_file_to_image(mlx->mlx, FLOOR_PATH, &size, &size);
 	img->key = mlx_xpm_file_to_image(mlx->mlx, KEY_PATH, &size, &size);
 	img->wall = mlx_xpm_file_to_image(mlx->mlx, WALL_PATH, &size, &size);
-	img->player_down = mlx_xpm_file_to_image(mlx->mlx, DOWN_IMG, &size, &size);
-	img->player_up = mlx_xpm_file_to_image(mlx->mlx, UP_IMG, &size, &size);
-	img->player_right = mlx_xpm_file_to_image(mlx->mlx, RIGHT_IMG, &size, &size);
-	img->player_left = mlx_xpm_file_to_image(mlx->mlx, LEFT_IMG, &size, &size);
+	img->player_down = mlx_xpm_file_to_image(mlx->mlx, DOWN, &size, &size);
+	img->player_up = mlx_xpm_file_to_image(mlx->mlx, UP, &size, &size);
+	img->player_right = mlx_xpm_file_to_image(mlx->mlx, RIGHT, &size, &size);
+	img->player_left = mlx_xpm_file_to_image(mlx->mlx, LEFT, &size, &size);
 	return (img);
 }
