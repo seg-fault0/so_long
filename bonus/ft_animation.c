@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:42:24 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/29 16:53:29 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/03 13:45:59 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_get_frames(t_mlx *mlx)
 	cur++;
 	if (cur == 5)
 		cur = 0;
+	mlx_destroy_image(mlx->mlx, mlx->img->fox);
 	if (cur == 0)
 		mlx->img->fox = mlx_xpm_file_to_image(mlx->mlx, F1, &size, &size);
 	else if (cur == 1)

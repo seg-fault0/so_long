@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:05 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/30 08:41:27 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/03 13:47:37 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_start(t_mlx *mlx)
 		ft_exit(mlx);
 	ft_map_gen(mlx);
 	ft_mlx_print_img(mlx, mlx->img->player_down, mlx->px, mlx->py);
+	mlx_destroy_image(mlx->mlx, mlx->player);
 }
 
 int	main(int argc, char *argv[])
