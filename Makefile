@@ -6,6 +6,7 @@ SRC =	srcs/ft_check.c				\
 		srcs/ft_utils.c				\
 		srcs/get_next_line.c		\
 		srcs/get_next_line_utils.c	\
+		srcs/ft_check2.c			\
 		srcs/main.c					\
 
 BSRC = 	bonus/ft_animation.c				\
@@ -28,7 +29,7 @@ BNAME = so_long_bonus
 I = -I ./includes/
 
 L = -L ./ -lmlx_Linux -lX11 -lXext
-#FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 bonus: $(BNAME)
