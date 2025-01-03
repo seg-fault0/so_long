@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:10 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/27 17:15:04 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/03 13:00:36 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static int	ft_can_mov(t_mlx *mlx, int x, int y)
 	{
 		steps = ft_itoa(mlx->steps++);
 		write(1, steps, ft_strlen(steps));
+		free(steps);
 		write(1, "\n", 1);
 	}
 	return (1);
