@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:26:02 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/04 08:43:42 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/04 08:49:13 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ t_mlx	*ft_mlx_init(char *str)
 	mlx->map = ft_get_map(mlx->fd);
 	if (!mlx->map)
 		return (close(mlx->fd), free(mlx), NULL);
+	mlx->keys = ft_key_count(mlx->map);
+	if (ft_check_path(mlx))
+		return (ft_free_map(mlx->map), close(mlx->fd), free(mlx), NULL);
 	mlx->win = ft_create_win(mlx);
 	if (!mlx->win)
 		return (ft_free_map(mlx->map), close(mlx->fd), free(mlx), NULL);
@@ -48,7 +51,6 @@ t_mlx	*ft_mlx_init(char *str)
 		return (ft_free_map(mlx->map), close(mlx->fd), free(mlx), NULL);
 	mlx->px = ft_get_coordinates(mlx->map, 'P', 'x');
 	mlx->py = ft_get_coordinates(mlx->map, 'P', 'y');
-	mlx->keys = ft_key_count(mlx->map);
 	mlx->collected = 0;
 	return (mlx);
 }

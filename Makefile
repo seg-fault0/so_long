@@ -18,6 +18,7 @@ BSRC = 	bonus/ft_animation.c				\
 		bonus/ft_utils_bonus.c				\
 		bonus/get_next_line_bonus.c			\
 		bonus/get_next_line_utils_bonus.c	\
+		bonus/ft_check2_bonus.c				\
 		bonus/main_bonus.c					\
 
 OBG = $(SRC:.c=.o)
