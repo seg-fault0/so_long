@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:26:02 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/03 13:10:45 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/04 08:43:42 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_mlx	*ft_mlx_init(char *str)
 	if (!mlx->win)
 		return (ft_free_map(mlx->map), close(mlx->fd), free(mlx), NULL);
 	mlx->img = ft_get_images(mlx);
-	if(!mlx->img)
+	if (!mlx->img)
 		return (ft_free_map(mlx->map), close(mlx->fd), free(mlx), NULL);
 	mlx->px = ft_get_coordinates(mlx->map, 'P', 'x');
 	mlx->py = ft_get_coordinates(mlx->map, 'P', 'y');
