@@ -6,40 +6,38 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:42:24 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/04 09:28:16 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/04 10:15:17 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	ft_fox_mov(t_mlx *mlx)
+void	ft_fox_mov(t_mlx *mlx, char **map)
 {
 	int			i;
 	int			j;
-	static int	dir;
+	static int	dir = 1;
 
-	i = 0;
-	while (mlx->map[i] != NULL)
+	i = -1;
+	while (map[++i] != NULL)
 	{
-		j = 0;
-		while (mlx->map[i][j] != '\n')
+		j = -1;
+		while (map[i][++j] != '\n')
 		{
-			if(mlx->map[i][j] == 'B' && mlx->map[i][j+1] == '0' && dir == 0)
+			if (map[i][j] == 'B' && map[i][j + dir] == '0')
 			{
-				mlx->map[i][j] = '0';
-				mlx->map[i][++j] = 'B';
-				dir = 1;
+				map[i][j] = '0';
+				map[i][j + dir] = 'B';
+				j++;
 			}
-			else if(mlx->map[i][j] == 'B' && mlx->map[i][j-1] == '0' && dir == 1)
+			if (map[mlx->py][mlx->px] == 'B')
 			{
-				mlx->map[i][j] = '0';
-				mlx->map[i][--j] = 'B';
-				dir = 0;
+				write(1, "You Lost! \n", 11);
+				ft_exit(mlx);
 			}
-			j++;
 		}
-		i++;
-	}	
+	}
+	dir *= -1;
 }
 
 void	ft_get_frames(t_mlx *mlx)
@@ -78,7 +76,7 @@ int	ft_animation(t_mlx *mlx)
 		ft_get_frames(mlx);
 	}
 	if (i % fox_mv_speed == 0)
-		ft_fox_mov(mlx);
+		ft_fox_mov(mlx, mlx->map);
 	if (i == anim_speed * 1000)
 		i = 1;
 	i++;
