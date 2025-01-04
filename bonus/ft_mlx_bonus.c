@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:26:02 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/04 08:49:13 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/04 14:45:55 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_mlx	*ft_mlx_init(char *str)
 	mlx = malloc(sizeof(t_mlx));
 	if (!mlx)
 		return (NULL);
-	mlx->fd = open(str, O_RDWR);
+	mlx->fd = open(str, O_RDONLY);
 	if (mlx->fd < 0)
 		return (free(mlx), NULL);
 	mlx->mlx = mlx_init();
