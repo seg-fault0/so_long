@@ -6,13 +6,13 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:22 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/03 13:42:36 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/04 18:11:22 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_free_images(t_mlx *mlx)
+void	ft_free_images(t_mlx *mlx)
 {
 	mlx_destroy_image(mlx->mlx, mlx->img->door);
 	mlx_destroy_image(mlx->mlx, mlx->img->floor);
