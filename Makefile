@@ -9,7 +9,7 @@ SRC =	srcs/ft_check.c				\
 		srcs/ft_check2.c			\
 		srcs/main.c					\
 
-BSRC = 	bonus/ft_animation.c				\
+BSRC = 	bonus/ft_animation_bonus.c				\
 		bonus/ft_check_bonus.c				\
 		bonus/ft_exit_bonus.c				\
 		bonus/ft_input_bonus.c				\
