@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:51 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/25 16:33:53 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/05 13:39:26 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ char	**ft_get_map(int fd)
 	i = 0;
 	j = -1;
 	tmp_map[i] = get_next_line(fd);
+	if (!tmp_map[i])
+		return (NULL);
 	while (tmp_map[i] != NULL && i < MAX_COL - 1)
 	{
 		i++;
