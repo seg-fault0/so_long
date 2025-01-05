@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:51 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/25 16:33:53 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/05 11:19:24 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ char	**ft_get_map(int fd)
 	int		i;
 	int		j;
 
+	if (read(fd, 0, 0) < 0)
+		return (NULL);
 	i = 0;
 	j = -1;
 	tmp_map[i] = get_next_line(fd);
@@ -70,7 +72,7 @@ char	**ft_get_map(int fd)
 		tmp_map[i] = get_next_line(fd);
 	}
 	map = malloc(sizeof(char *) * (i + 1));
-	if (map == NULL)
+	if (!map)
 		return (NULL);
 	while (++j < i)
 		map[j] = tmp_map[j];
