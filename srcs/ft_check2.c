@@ -6,12 +6,12 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 14:07:28 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/05 09:08:28 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/05 15:17:16 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
+#include <stdio.h>
 typedef struct s_point
 {
 	int	x;
@@ -40,18 +40,18 @@ char	**ft_get_map_cpy(char **map, int max_y, int max_x)
 	return (map_cpy);
 }
 
-void	fill(char **tab, t_point size, t_point cur, int *ek)
+void	check_path(char **tab, t_point size, t_point cur, int *ek)
 {
-	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x
-		|| tab[cur.y][cur.x] == '1')
-		return ;
-	if (tab[cur.y][cur.x] == 'E' || tab[cur.y][cur.x] == 'C')
+	if (tab[cur.y][cur.x] == 'C' || tab[cur.y][cur.x] == 'E')
 		*ek += 1;
+	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x
+		|| tab[cur.y][cur.x] == '1' || tab[cur.y][cur.x] == 'E')
+		return ;
 	tab[cur.y][cur.x] = '1';
-	fill(tab, size, (t_point){cur.x - 1, cur.y}, ek);
-	fill(tab, size, (t_point){cur.x + 1, cur.y}, ek);
-	fill(tab, size, (t_point){cur.x, cur.y - 1}, ek);
-	fill(tab, size, (t_point){cur.x, cur.y + 1}, ek);
+	check_path(tab, size, (t_point){cur.x - 1, cur.y}, ek);
+	check_path(tab, size, (t_point){cur.x + 1, cur.y}, ek);
+	check_path(tab, size, (t_point){cur.x, cur.y - 1}, ek);
+	check_path(tab, size, (t_point){cur.x, cur.y + 1}, ek);
 }
 
 int	ft_check_path(t_mlx *mlx)
@@ -67,7 +67,7 @@ int	ft_check_path(t_mlx *mlx)
 	start.y = ft_get_coordinates(mlx->map, 'P', 'y');
 	ek = 0;
 	map = ft_get_map_cpy(mlx->map, size.y + 1, size.x + 1);
-	fill(map, size, start, &ek);
+	check_path(map, size, start, &ek);
 	ft_free_map(map);
 	if (ek != mlx->keys + 1)
 	{
