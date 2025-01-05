@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 14:07:28 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/05 09:08:28 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/05 11:01:15 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	**ft_get_map_cpy(char **map, int max_y, int max_x)
 void	fill(char **tab, t_point size, t_point cur, int *ek)
 {
 	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x
-		|| tab[cur.y][cur.x] == '1')
+		|| tab[cur.y][cur.x] == '1' || tab[cur.y][cur.x] == 'E')
 		return ;
 	if (tab[cur.y][cur.x] == 'E' || tab[cur.y][cur.x] == 'C')
 		*ek += 1;
