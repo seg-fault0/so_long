@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:33:26 by wimam             #+#    #+#             */
-/*   Updated: 2024/12/29 18:37:52 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/05 09:08:15 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ char	**ft_ckeck_map(char **map)
 		|| max_x > 60 || max_y > 32 || ft_check_map_components(map)
 		|| ft_check_map_border(map, max_x, max_y - 1))
 	{
-		write(1, "ERROR : wrong map\n", 18);
+		write(2, "ERROR : wrong map\n", 18);
 		return (ft_free_map(map), NULL);
 	}
 	return (map);
@@ -126,7 +126,7 @@ int	ft_check_extension(char *path)
 	{
 		if (path[max + i] != extension[i])
 		{
-			write(1, "Error\n", 7);
+			write(2, "Error\n", 7);
 			return (1);
 		}
 		i++;
