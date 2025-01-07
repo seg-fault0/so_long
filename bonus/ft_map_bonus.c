@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:51 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/07 10:13:24 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/07 10:18:10 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void ft_free_map_max(char **map, int max)
 	int	i;
 
 	i = 0;
-	while (i < max)
+	while (i <= max)
 		free(map[i++]);
 }
 
