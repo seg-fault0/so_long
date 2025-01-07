@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:22 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/05 13:44:23 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/07 10:07:46 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,22 @@ int	ft_exit(t_mlx *mlx)
 	free(mlx);
 	exit(0);
 	return (0);
+}
+
+void	ft_error_msg(unsigned int msg)
+{
+	if (msg == 1)
+		write(2, "ERROR : Wrong Map Extention\n", 28);
+	else if (msg == 2)
+		write(2, "ERROR : Wrong Map Components\n", 29);
+	else if (msg == 3)
+		write(2, "ERROR : Missing Map Components\n", 31);
+	else if (msg == 4)
+		write(2, "ERROR : Doubled Components\n", 27);
+	else if (msg == 5)
+		write(2, "ERROR : Wrong Border\n", 21);
+	else if (msg == 6)
+		write(2, "ERROR : Player Can't Win\n", 25);
+	else if (msg == 7)
+		write(2, "ERROR : Map is too large\n", 25);
 }
