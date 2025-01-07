@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:27:59 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/04 08:47:12 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/07 10:10:23 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,6 @@ int		ft_check_path(t_mlx *mlx);
 int		ft_animation(t_mlx *mlx);
 void	ft_mov(t_mlx *mlx, int direction);
 void	ft_get_frames(t_mlx *mlx);
+void	ft_error_msg(unsigned int msg);
 
 #endif

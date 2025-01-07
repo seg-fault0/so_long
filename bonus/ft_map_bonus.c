@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:51 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/05 13:44:59 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/07 10:13:24 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,15 @@ void	ft_free_map(char **map)
 	free(map);
 }
 
+void ft_free_map_max(char **map, int max)
+{
+	int	i;
+
+	i = 0;
+	while (i < max)
+		free(map[i++]);
+}
+
 char	**ft_get_map(int fd)
 {
 	char	*tmp_map[MAX_COL];
@@ -67,13 +76,12 @@ char	**ft_get_map(int fd)
 	if (!tmp_map[i])
 		return (NULL);
 	while (tmp_map[i] != NULL && i < MAX_COL - 1)
-	{
-		i++;
-		tmp_map[i] = get_next_line(fd);
-	}
+		tmp_map[++i] = get_next_line(fd);
+	if (i == MAX_COL - 1)
+		return (ft_error_msg(7), ft_free_map_max(tmp_map, i), NULL);
 	map = malloc(sizeof(char *) * (i + 1));
 	if (map == NULL)
-		return (NULL);
+		return (ft_free_map_max(tmp_map, i), NULL);
 	while (++j < i)
 		map[j] = tmp_map[j];
 	map[i] = NULL;

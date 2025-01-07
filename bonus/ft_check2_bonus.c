@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 14:07:28 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/05 15:24:32 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/07 10:12:10 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,6 @@ int	ft_check_path(t_mlx *mlx)
 	check_path(map, size, start, &ek);
 	ft_free_map(map);
 	if (ek != mlx->keys + 1)
-	{
-		write(2, "EROOR\n", 6);
-		return (1);
-	}
+		return (ft_error_msg(6), 1);
 	return (0);
 }
