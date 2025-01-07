@@ -6,12 +6,12 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 14:07:28 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/07 10:04:35 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/07 10:20:27 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
+
 typedef struct s_point
 {
 	int	x;

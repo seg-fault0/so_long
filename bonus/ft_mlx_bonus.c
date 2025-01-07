@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:26:02 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/05 13:45:42 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/07 10:25:23 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ void	*ft_create_win(t_mlx *mlx)
 	with = ft_get_coordinates(mlx->map, 'w', 'x') * IMG_SIZE;
 	win = mlx_new_window(mlx->mlx, with, height, "so_long");
 	return (win);
+}
+
+void	ft_return(t_mlx *mlx)
+{
+	ft_free_map(mlx->map);
+	free(mlx->mlx);
+	close(mlx->fd);
 }
 
 t_mlx	*ft_mlx_init(char *str)
@@ -42,10 +49,10 @@ t_mlx	*ft_mlx_init(char *str)
 		return (free(mlx->mlx), close(mlx->fd), free(mlx), NULL);
 	mlx->keys = ft_key_count(mlx->map);
 	if (ft_check_path(mlx))
-		return (ft_free_map(mlx->map), free(mlx->mlx), close(mlx->fd), free(mlx), NULL);
+		return (ft_return(mlx), free(mlx), NULL);
 	mlx->win = ft_create_win(mlx);
 	if (!mlx->win)
-		return (ft_free_map(mlx->map), free(mlx->mlx), close(mlx->fd), free(mlx), NULL);
+		return (ft_return(mlx), free(mlx), NULL);
 	mlx->img = ft_get_images(mlx);
 	mlx->px = ft_get_coordinates(mlx->map, 'P', 'x');
 	mlx->py = ft_get_coordinates(mlx->map, 'P', 'y');

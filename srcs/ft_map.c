@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:51 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/07 10:17:52 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/07 10:20:04 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_free_map(char **map)
 	free(map);
 }
 
-void ft_free_map_max(char **map, int max)
+void	ft_free_map_max(char **map, int max)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:33:26 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/07 10:11:51 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/07 10:24:02 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ int	ft_check_extension(char *path)
 	while (max + i < len)
 	{
 		if (path[max + i] != extension[i])
-			return (ft_error_msg(1) , 1);
+			return (ft_error_msg(1), 1);
 		i++;
 	}
 	return (0);
