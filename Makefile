@@ -29,7 +29,7 @@ BNAME = so_long_bonus
 
 I = -I ./includes/
 
-L = -L ./ -lmlx_Linux -lX11 -lXext
+L = -L ./libraries/ -lmlx_Linux -lX11 -lXext
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
