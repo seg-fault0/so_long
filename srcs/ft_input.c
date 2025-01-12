@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_input.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
+/*   By: wimam <walidimam69@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:10 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/03 13:00:36 by wimam            ###   ########.fr       */
+/*   Updated: 2025/01/12 17:36:26 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,6 @@ static	void	ft_event(t_mlx *mlx, int px, int py)
 	if ((current == 'E' && mlx->collected == 1))
 	{
 		write(1, "YOU WON!!\n", 10);
-		ft_exit(mlx);
-	}
-	if (current == 'B')
-	{
-		write(1, "YOU LOST!!\n", 11);
 		ft_exit(mlx);
 	}
 }

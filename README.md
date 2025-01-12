@@ -11,21 +11,33 @@
 - Basic enemy behavior (bonus)
 - Customizable maps
 
-## How to Build
+## How to Build (MANDATORY)
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/seg-fault0/so_long.git
    cd so_long
    ```
-2. Build the project using the provided Makefile:
+### MANDATORY
+2. Build the project Makefile:
    ```bash
    make
    ```
-3. Run the game:
+3. Run the project
+	```bash
+	./so_long ./maps/map.ber
+	```
+
+### BONUS
+2. Build the project Makefile:
    ```bash
-   ./so_long ./maps/map.ber
+   make bonus
    ```
+3. Run the project
+	```bash
+	./so_long_bonus ./maps/bmap.ber
+	```
+
 
 ## Controls
 
@@ -44,6 +56,7 @@ The map is defined in a `.ber` file, which is a simple text file containing char
 - `C`: Collectible
 - `E`: Exit
 - `P`: Player starting position
+- `B`: Enemy (bonus)
 
 ### Example Map
 ```
