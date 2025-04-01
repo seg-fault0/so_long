@@ -24,7 +24,7 @@ char	**ft_get_map_cpy(char **map, int max_y, int max_x)
 	int		i;
 	int		j;
 
-	map_cpy = malloc(8 * max_y);
+	map_cpy = malloc((max_y + 1) * sizeof(char **));
 	i = 0;
 	while (map[i] != NULL)
 	{
@@ -37,6 +37,7 @@ char	**ft_get_map_cpy(char **map, int max_y, int max_x)
 		}
 		i++;
 	}
+	map_cpy[i] = NULL;
 	return (map_cpy);
 }
 
