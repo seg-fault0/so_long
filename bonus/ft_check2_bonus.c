@@ -44,10 +44,13 @@ char	**ft_get_map_cpy(char **map, int max_y, int max_x)
 void	check_path(char **tab, t_point size, t_point cur, int *ek)
 {
 	if (tab[cur.y][cur.x] == 'C' || tab[cur.y][cur.x] == 'E')
+	{
 		*ek += 1;
+		if (tab[cur.y][cur.x] == 'E')
+		tab[cur.y][cur.x] = '1';
+	}
 	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x
-		|| tab[cur.y][cur.x] == '1' || tab[cur.y][cur.x] == 'E'
-		|| tab[cur.y][cur.x] == 'B')
+		|| tab[cur.y][cur.x] == '1' || tab[cur.y][cur.x] == 'B')
 		return ;
 	tab[cur.y][cur.x] = '1';
 	check_path(tab, size, (t_point){cur.x - 1, cur.y}, ek);
