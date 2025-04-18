@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:22 by wimam             #+#    #+#             */
-/*   Updated: 2025/01/07 10:07:46 by wimam            ###   ########.fr       */
+/*   Updated: 2025/04/18 01:03:53 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	ft_exit(t_mlx *mlx)
 	ft_free_images(mlx);
 	mlx_clear_window(mlx->mlx, mlx->win);
 	mlx_destroy_window(mlx->mlx, mlx->win);
+	mlx_destroy_display(mlx->mlx);
 	ft_free_map(mlx->map);
 	free(mlx->mlx);
 	close(mlx->fd);
