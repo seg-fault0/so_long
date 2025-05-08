@@ -6,7 +6,7 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:26:02 by wimam             #+#    #+#             */
-/*   Updated: 2025/04/18 01:03:16 by wimam            ###   ########.fr       */
+/*   Updated: 2025/05/08 12:54:05 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_return(t_mlx *mlx)
 	free(mlx->mlx);
 	close(mlx->fd);
 }
-
+#include <stdio.h>
 t_mlx	*ft_mlx_init(char *str)
 {
 	t_mlx	*mlx;
@@ -54,6 +54,8 @@ t_mlx	*ft_mlx_init(char *str)
 	if (!mlx->win)
 		return (ft_return(mlx), free(mlx), NULL);
 	mlx->img = ft_get_images(mlx);
+	if (!mlx->img)
+		return (NULL);
 	mlx->px = ft_get_coordinates(mlx->map, 'P', 'x');
 	mlx->py = ft_get_coordinates(mlx->map, 'P', 'y');
 	mlx->collected = 0;
@@ -84,5 +86,8 @@ t_img	*ft_get_images(t_mlx *mlx)
 	img->player_up = mlx_xpm_file_to_image(mlx->mlx, UP, &size, &size);
 	img->player_right = mlx_xpm_file_to_image(mlx->mlx, RIGHT, &size, &size);
 	img->player_left = mlx_xpm_file_to_image(mlx->mlx, LEFT, &size, &size);
+	if (!img->door || !img->floor || !img->key || !img->wall || !img->player_up
+		|| !img->player_down || !img->player_right || !img->player_left)
+		return (ft_error_msg(8), NULL);
 	return (img);
 }

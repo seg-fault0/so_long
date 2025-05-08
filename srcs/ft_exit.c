@@ -6,22 +6,31 @@
 /*   By: wimam <walidimam69gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:24:22 by wimam             #+#    #+#             */
-/*   Updated: 2025/04/18 01:03:53 by wimam            ###   ########.fr       */
+/*   Updated: 2025/05/08 12:49:33 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <stdio.h>
 
 void	ft_free_images(t_mlx *mlx)
 {
-	mlx_destroy_image(mlx->mlx, mlx->img->door);
-	mlx_destroy_image(mlx->mlx, mlx->img->floor);
-	mlx_destroy_image(mlx->mlx, mlx->img->key);
-	mlx_destroy_image(mlx->mlx, mlx->img->player_down);
-	mlx_destroy_image(mlx->mlx, mlx->img->player_left);
-	mlx_destroy_image(mlx->mlx, mlx->img->player_right);
-	mlx_destroy_image(mlx->mlx, mlx->img->player_up);
-	mlx_destroy_image(mlx->mlx, mlx->img->wall);
+	if (mlx->img->door)
+		mlx_destroy_image(mlx->mlx, mlx->img->door);
+	if (mlx->img->floor)
+		mlx_destroy_image(mlx->mlx, mlx->img->floor);
+	if (mlx->img->key)
+		mlx_destroy_image(mlx->mlx, mlx->img->key);
+	if (mlx->img->player_down)
+		mlx_destroy_image(mlx->mlx, mlx->img->player_down);
+	if (mlx->img->player_left)
+		mlx_destroy_image(mlx->mlx, mlx->img->player_left);
+	if (mlx->img->player_right)
+		mlx_destroy_image(mlx->mlx, mlx->img->player_right);
+	if (mlx->img->player_up)
+		mlx_destroy_image(mlx->mlx, mlx->img->player_up);
+	if (mlx->img->wall)
+		mlx_destroy_image(mlx->mlx, mlx->img->wall);
 	free(mlx->img);
 }
 
@@ -55,4 +64,6 @@ void	ft_error_msg(unsigned int msg)
 		write(2, "ERROR : Player Can't Win\n", 25);
 	else if (msg == 7)
 		write(2, "ERROR : Map is too large\n", 25);
+	else if (msg == 8)
+		write(2, "ERROR : failed to load an image\n", 32);
 }
